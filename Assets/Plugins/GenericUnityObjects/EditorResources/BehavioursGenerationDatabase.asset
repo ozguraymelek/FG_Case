@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34fec35c2bb4f2880a04272d23fbc31, type: 3}
+  m_Name: BehavioursGenerationDatabase
+  m_EditorClassIdentifier: 
+  _genericArgumentKeys: []
+  _genericArgumentValues:
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  _genericTypeValues: []
+  _genericTypeKeys:
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEventListener`1,
+      GenericScriptableArchitecture
+    _guid: 3fbbe1937fc54db082643a440c4e256d
+    AssemblyGUID: 80baeb06ef0e2df49a4dab52c2e464f2
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEventListener`2,
+      GenericScriptableArchitecture
+    _guid: 01712a74e85f4524987025e603667a65
+    AssemblyGUID: b635a5877b2ded64387d4ce79e74025d
+    _argNames:
+    - T1
+    - T2
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEventListener`3,
+      GenericScriptableArchitecture
+    _guid: 15714bedfd4c4b3e974d94fc48ba6236
+    AssemblyGUID: a6061f43f32eaa04599e7c6c3baf71a5
+    _argNames:
+    - T1
+    - T2
+    - T3
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: GenericScriptableArchitecture.EventInstancer`1, GenericScriptableArchitecture
+    _guid: 4828f693a8364b6592c6a8a233b64a43
+    AssemblyGUID: c61c027d697f4164ab23c9b87a585ca0
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: GenericScriptableArchitecture.EventInstancer`2, GenericScriptableArchitecture
+    _guid: 1cc521d598e1480fa27fd97f18ab0326
+    AssemblyGUID: c96514d7fe1291943860a30fb771e6b7
+    _argNames:
+    - T1
+    - T2
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: GenericScriptableArchitecture.EventInstancer`3, GenericScriptableArchitecture
+    _guid: 2154a59d4ae9411b8e3c08c2741b5212
+    AssemblyGUID: 53b95397143aa25469f039f5ddc0b687
+    _argNames:
+    - T1
+    - T2
+    - T3
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: GenericScriptableArchitecture.VariableInstancerWithHistory`1,
+      GenericScriptableArchitecture
+    _guid: f6aa29a3beee410ba2a6d1fb3b955103
+    AssemblyGUID: 4435adc492554be48b49e7acc08c7233
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: GenericScriptableArchitecture.VariableInstancer`1, GenericScriptableArchitecture
+    _guid: 8396bf53571f40e3b5cb08ec7a6388c2
+    AssemblyGUID: 3b48c979a409a2f41beca1095a8bb3ff
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0

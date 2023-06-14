@@ -1,0 +1,18 @@
+using UnityEngine;
+using nyy.FG_Case.ReferenceValue;
+using Sirenix.OdinInspector;
+
+namespace nyy.FG_Case
+{
+    [CreateAssetMenu(menuName = "Ref Values/...", fileName = "new ...", order = 0)]
+    public class #SCRIPTNAME# : RefValue
+    {
+        #region PROPERTIES
+         
+        #endregion
+        
+        #region PUBLIC FUNCTIONS
+        
+        #endregion
+    }
+}

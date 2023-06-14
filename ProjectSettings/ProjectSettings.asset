@@ -154,7 +154,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.FGCase
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -708,7 +709,22 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
+    Android: GSA_TIMELINE;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
+    EmbeddedLinux: GSA_TIMELINE
+    GameCoreScarlett: GSA_TIMELINE
+    GameCoreXboxOne: GSA_TIMELINE
+    LinuxHeadlessSimulation: GSA_TIMELINE
+    Lumin: GSA_TIMELINE
+    Nintendo Switch: GSA_TIMELINE
+    PS4: GSA_TIMELINE
+    PS5: GSA_TIMELINE
+    Stadia: GSA_TIMELINE
+    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;GSA_TIMELINE
+    WebGL: GSA_TIMELINE
+    Windows Store Apps: GSA_TIMELINE
+    XboxOne: GSA_TIMELINE
+    iPhone: GSA_TIMELINE
+    tvOS: GSA_TIMELINE
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -719,11 +735,11 @@ PlayerSettings:
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
   enableRoslynAnalyzers: 1
-  selectedPlatform: 0
+  selectedPlatform: 2
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 1
-  assemblyVersionValidation: 1
+  assemblyVersionValidation: 0
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1

@@ -1,24 +1,26 @@
 using System;
+using GenericScriptableArchitecture;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
 namespace nyy.FG_Case.ReferenceValue
 {
-    [CreateAssetMenu(menuName = "...", fileName = "...")]
     public class RefValue : SerializedScriptableObject
     {
         #region PROPERTIES
 
-        public event Action OnValueChanged;
+        [InfoBox("You can add an event that will be triggered when this reference value changes")]
+        public ScriptableEvent OnValueChanged;
 
         #endregion
 
         #region PUBLIC FUNCTIONS
 
-        public void ValueHasChanged()
+        protected void ValueHasChanged()
         {
-            OnValueChanged?.Invoke();
+            OnValueChanged.Invoke();
         }
+        
         #endregion
     }
 }
