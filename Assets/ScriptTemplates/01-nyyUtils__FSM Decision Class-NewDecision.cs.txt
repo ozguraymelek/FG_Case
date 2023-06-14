@@ -1,0 +1,33 @@
+using UnityEngine;
+
+namespace nyy.FG_Case
+{
+    [CreateAssetMenu(menuName = "Finite State Machine/Decision/..../....", fileName = "new .... Data")]
+    public class #SCRIPTNAME# : PlayerDecision
+    {
+        #region PROPERTIES
+         
+        #endregion
+                
+        #region EVENT FUNCTIONS
+        
+        #endregion
+                
+        #region IMPLEMENTED FUNCTIONS
+        
+        public override bool Decide(Player ctx)
+        {
+            return false;
+        }             
+         
+        #endregion  
+        
+        #region PUBLIC FUNCTIONS
+        
+        #endregion  
+                
+        #region PRIVATE FUNCTIONS
+        
+        #endregion
+    }
+}

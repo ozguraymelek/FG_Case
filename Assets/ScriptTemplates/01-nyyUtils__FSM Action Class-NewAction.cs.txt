@@ -1,0 +1,38 @@
+using UnityEngine;
+
+namespace nyy.FG_Case
+{
+    [CreateAssetMenu(menuName = "Finite State Machine/Action/....", fileName = "new .... Data")]
+    public class #SCRIPTNAME# : PlayerAction
+    {
+        #region PROPERTIES
+         
+        #endregion
+                
+        #region EVENT FUNCTIONS
+        
+        #endregion
+                
+        #region IMPLEMENTED FUNCTIONS
+        
+        public override void Onset(Player ctx)
+        {
+                
+        }
+
+        public override void Updating(Player ctx)
+        {
+                
+        }        
+         
+        #endregion  
+        
+        #region PUBLIC FUNCTIONS
+        
+        #endregion  
+                
+        #region PRIVATE FUNCTIONS
+        
+        #endregion
+    }
+}

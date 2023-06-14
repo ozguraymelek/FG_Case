@@ -1,0 +1,29 @@
+using UnityEngine;
+using Sirenix.OdinInspector;
+
+namespace nyy.FG_Case
+{
+    [CreateAssetMenu(menuName = "...", fileName = "...")]
+    public class #SCRIPTNAME# : SerializedScriptableObject
+    {
+        #region PROPERTIES
+         
+        #endregion
+                
+        #region EVENT FUNCTIONS
+        
+        #endregion
+                
+        #region IMPLEMENTED FUNCTIONS
+        
+        #endregion  
+        
+        #region PUBLIC FUNCTIONS
+        
+        #endregion  
+                
+        #region PRIVATE FUNCTIONS
+        
+        #endregion
+    }
+}
