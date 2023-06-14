@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Projects/Common/Scenes/Game.unity
+    path: Assets/_Projects/Common/Scenes/Player Controller.unity
     guid: 866d9834581f0524393cc8d0e35341da
   m_configObjects: {}
