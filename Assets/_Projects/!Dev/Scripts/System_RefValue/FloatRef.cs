@@ -1,8 +1,7 @@
-using nyy.FG_Case.ReferenceValue;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace nyy.FG_Case
+namespace nyy.FG_Case.ReferenceValue
 {
     [CreateAssetMenu(menuName = "Ref Values/float", fileName = "new float", order = 0)]
     public class FloatRef : RefValue

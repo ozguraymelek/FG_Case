@@ -3,13 +3,13 @@ using Sirenix.OdinInspector;
 
 namespace nyy.FG_Case.ReferenceValue
 {
-    [CreateAssetMenu(menuName = "Ref Values/bool", fileName = "new bool", order = 0)]
-    public class BoolRef : RefValue
+    [CreateAssetMenu(menuName = "Ref Values/float3", fileName = "new float3", order = 0)]
+    public class Vector3Ref : RefValue
     {
         #region PROPERTIES
         
         [ShowInInspector]
-        public bool Value
+        public Vector3 Value
         {
             get => _value;
 
@@ -22,7 +22,7 @@ namespace nyy.FG_Case.ReferenceValue
             }
         }
         
-        private bool _value;
+        private Vector3 _value;
         
         #endregion
         
