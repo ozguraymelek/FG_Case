@@ -26,6 +26,8 @@ MonoBehaviour:
   - _array: []
   - _array: []
   - _array: []
+  - _array: []
+  - _array: []
   _genericTypeValues: []
   _genericTypeKeys:
   - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`1,
@@ -95,6 +97,17 @@ MonoBehaviour:
     - T
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
     _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
+      com.unity.cinemachine.editor
+    _guid: 211d719bb25901043833928f50e9d0ea
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
+    _guid: 15ef94834d9e4aa44ac8fe619843346b
     AssemblyGUID: 
     _argNames:
     - T

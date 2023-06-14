@@ -29,7 +29,14 @@ MonoBehaviour:
   - _typeNameAndAssembly: Unity.Cloud.Collaborate.Common.ScriptableObjectSingleton`1,
       Unity.CollabProxy.Editor
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+  - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
+      com.unity.cinemachine.editor
+  - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
   _values:
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
   - _keys: []
     _values: []
   - _keys: []

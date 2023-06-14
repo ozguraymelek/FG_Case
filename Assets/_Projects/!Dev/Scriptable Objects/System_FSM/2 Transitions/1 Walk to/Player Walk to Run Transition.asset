@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433a1c253983dfb49ab121931402e026, type: 3}
+  m_Name: Player Walk to Run Transition
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Decision: {fileID: 11400000, guid: b88e954881e74eb4187acd42a0f12c37, type: 2}
+  NewState: {fileID: 11400000, guid: d03cd65af1489d84e8110af9c006560a, type: 2}
+  StayState: {fileID: 11400000, guid: 3d97ad78e349d954790bc8e555c51729, type: 2}
