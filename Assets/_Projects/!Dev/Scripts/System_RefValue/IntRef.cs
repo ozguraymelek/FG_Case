@@ -3,13 +3,13 @@ using Sirenix.OdinInspector;
 
 namespace nyy.FG_Case.ReferenceValue
 {
-    [CreateAssetMenu(menuName = "Ref Values/...", fileName = "new ...", order = 0)]
-    public class #SCRIPTNAME# : RefValue
+    [CreateAssetMenu(menuName = "Ref Values/int", fileName = "new int", order = 0)]
+    public class IntRef : RefValue
     {
         #region PROPERTIES
         
         [ShowInInspector]
-        public object Value
+        public int Value
         {
             get => _value;
 
@@ -22,7 +22,7 @@ namespace nyy.FG_Case.ReferenceValue
             }
         }
         
-        private object _value;       
+        private int _value;       
         
         #endregion
         

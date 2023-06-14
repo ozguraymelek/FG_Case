@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04e00c890644cc9adb05d0c17f5ee62, type: 3}
   m_Name: SOGenerationDatabase
   m_EditorClassIdentifier: 
-  _genericArgumentKeys: []
+  _genericArgumentKeys:
+  - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+    _guid: ab7b05f37da41594ea9106e54e0169f1
   _genericArgumentValues:
   - _array: []
   - _array: []
   - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+        _guid: ab7b05f37da41594ea9106e54e0169f1
+      _assemblyGUID: be4aebb24fc92474c943a6761587abce
   - _array: []
   - _array: []
   - _array: []
@@ -27,8 +34,13 @@ MonoBehaviour:
   - _array: []
   - _array: []
   - _array: []
-  - _array: []
-  _genericTypeValues: []
+  _genericTypeValues:
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.RuntimeSet`1, GenericScriptableArchitecture
+      _guid: c310ebaa7e1d4da39f89d2340c56c267
+      AssemblyGUID: 
+      _argNames:
+      - TUnityObject
   _genericTypeKeys:
   - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`1,
       GenericScriptableArchitecture.Timeline

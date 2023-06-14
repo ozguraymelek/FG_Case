@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dcfbc23fd1a60468e3286f443ec31a, type: 3}
+  m_Name: GemGenerator
+  m_EditorClassIdentifier: 
+  GemData: {fileID: 11400000, guid: fdf424997d892ae4a831dcf537c97573, type: 2}
+  setReferencePrefab: 0
+  ReferencePrefab: {fileID: 6165846538974757285, guid: b62e09ea291c4fa4eba2630d8f8796f7, type: 3}
+  Name: Green Gem
+  StartingSalePrice: 100
+  Icon: {fileID: 21300000, guid: 38503639e05cb71439fa787bfee60f92, type: 3}
+  HDROn: 0
+  ColorHDR: {r: 0, g: 0, b: 0, a: 0}
+  Color: {r: 0.16336277, g: 0.8396226, b: 0.13861692, a: 1}
+  hidePaths: 1
+  MaterialPath: Assets/_Projects/Art/Materials/Gem
+  GemPath: Assets/_Projects/!Dev/Prefabs/Gems
