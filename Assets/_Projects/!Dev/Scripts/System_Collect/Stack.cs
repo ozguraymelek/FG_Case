@@ -14,17 +14,17 @@ namespace nyy.FG_Case.PlayerSc
     {
         #region PROPERTIES
 
-        public ScriptableEvent IncreaseCountEvent;
+        
         
         [TabGroup("References")] 
         public GemGenerator GemGenerator;
         
-        [TabGroup("Gem Item List")]
-        public List<GemListItem> GemListItems;
+        [TabGroup("Gem Item List")][ShowInInspector]
+        public static List<GemListItem> GemListItems;
 
         [TabGroup("Components")] 
         public Transform stackHolder;
-        
+
         #endregion
                 
         #region EVENT FUNCTIONS
@@ -41,8 +41,6 @@ namespace nyy.FG_Case.PlayerSc
             if (gem.CanStackable() == false) return;
                 
             gem.Stack(stackHolder);
-
-            FindGemList(gem);
             
             gem.SetGrowable(false);
         }
@@ -66,17 +64,8 @@ namespace nyy.FG_Case.PlayerSc
             //     GemListItems[0].CollectedCount += 1;
             // }
 
-            var tempGemEnumerable = from gemListItem in GemListItems
-                where gemListItem.Type == gem.GetName()
-                select gemListItem;
-
-            IncreaseCountEvent.Invoke();
         }
+        
         #endregion
-
-        public void OnEventInvoked()
-        {
-            
-        }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using GenericScriptableArchitecture;
 using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -13,6 +14,8 @@ namespace nyy.FG_Case
     {
         #region PROPERTIES
         
+        public ScriptableEvent IncreaseCountEvent;
+        
         [TabGroup("A","Settings")] 
         public string Type;
         
@@ -20,7 +23,7 @@ namespace nyy.FG_Case
         public int StartingSalePrice;
         
         [TabGroup("A","Settings")] 
-        public IntReactiveProperty CollectedCount;
+        public int CollectedCount;
         
         [TabGroup("B","Components")] 
         public Image Icon;
@@ -41,7 +44,7 @@ namespace nyy.FG_Case
 
         private void Start()
         {
-            CollectedCount.SubscribeToText(textCollectedCount);
+            // CollectedCount.SubscribeToText(textCollectedCount);
         }
 
         #endregion
@@ -64,7 +67,7 @@ namespace nyy.FG_Case
         public void IncreaseCount()
         {
             print("b");
-            CollectedCount.Value = 31;
+            CollectedCount = 31;
             print("a");
         }
         #endregion  

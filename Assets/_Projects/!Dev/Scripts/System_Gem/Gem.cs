@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -17,45 +18,38 @@ namespace nyy.FG_Case.System_Gem
     {
         #region PROPERTIES
 
-        [BoxGroup] 
-        public GemObjectData GemData;
-        [BoxGroup] 
-        public Growing Growing;
-        
-        [TabGroup("X", "Data")] 
-        public GemProperties GemProperties;
-        
-        [TabGroup("A","Components")]
-        [SerializeField] public BoxCollider collider;
-        
-        [Title("Properties")] 
-        [TabGroup("B","Stack Settings")]
-        public IntRef CollectedAllGemAmount;
-        [TabGroup("B","Stack Settings")]
-        public bool isStacked = false;
-        
-        [Title("Properties")] 
-        [TabGroup("B","Interact Settings")]
-        public bool canGrow;
-        [TabGroup("B","Interact Settings")]
-        public bool canStackable;
-        [TabGroup("B","Interact Settings")]
-        public bool isGrew;
-        
-        [TabGroup("Runtime Set")]
-        public RuntimeSet<Gem> CollectedGemSet;
+        [BoxGroup] public GemObjectData GemData;
+        [BoxGroup] public Growing Growing;
 
-        [TabGroup("C","DoTween Settings")]
-        [SerializeField] private GemDoTweenProperties gemDoTweenProperties;
+        [TabGroup("X", "Data")] public GemProperties GemProperties;
+
+        [TabGroup("A", "Components")] [SerializeField]
+        public BoxCollider collider;
+
+        [Title("Properties")] [TabGroup("B", "Stack Settings")]
+        public IntRef CollectedAllGemAmount;
+
+        [TabGroup("B", "Stack Settings")] public bool isStacked = false;
+
+        [Title("Properties")] [TabGroup("B", "Interact Settings")]
+        public bool canGrow;
+
+        [TabGroup("B", "Interact Settings")] public bool canStackable;
+        [TabGroup("B", "Interact Settings")] public bool isGrew;
+
+        [TabGroup("Runtime Set")] public RuntimeSet<Gem> CollectedGemSet;
+
+        [TabGroup("C", "DoTween Settings")] [SerializeField]
+        private GemDoTweenProperties gemDoTweenProperties;
         
         #endregion
-                
+
         #region EVENT FUNCTIONS
 
         private void Start()
         {
             Growing.CheckGrowing(this);
-            
+
             GemSituationalActions();
         }
 
@@ -66,9 +60,9 @@ namespace nyy.FG_Case.System_Gem
         }
 
         #endregion
-                
+
         #region IMPLEMENTED FUNCTIONS
-        
+
         public void Stack(Transform target)
         {
             // await UniTask.WhenAll(Move(target, this.GetCancellationTokenOnDestroy()));
@@ -94,19 +88,24 @@ namespace nyy.FG_Case.System_Gem
             return canStackable;
         }
 
+        public void IncreaseCollectedCount()
+        {
+            
+        }
+
         public string GetName()
         {
             return GemProperties.Name;
         }
 
-        #endregion  
-        
+        #endregion
+
         #region PUBLIC FUNCTIONS
-        
-        #endregion  
-                
+
+        #endregion
+
         #region PRIVATE FUNCTIONS
-        
+
         // private List<UniTask> Move(Transform target, CancellationToken ct)
         // {
         //     var taskList = new List<UniTask>();
@@ -121,14 +120,15 @@ namespace nyy.FG_Case.System_Gem
         //
         //     return taskList;
         // }
-        
+
         private Tween Move(Transform target)
         {
             var seq = DOTween.Sequence();
 
             // seq.Append(transform.DOMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
-            seq.Append(transform.DOPunchPosition(gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
-            
+            seq.Append(transform.DOPunchPosition(gemDoTweenProperties.DoMoveUpEndValue,
+                gemDoTweenProperties.DoMoveUpDuration));
+
             // SpawnedGemFromPool.Remove(this);
 
             return seq;
@@ -137,58 +137,53 @@ namespace nyy.FG_Case.System_Gem
         private void SetParent(Transform target)
         {
             transform.DOFollow(target,
-                target.localPosition + new Vector3(0f, gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0f), 
+                target.localPosition + new Vector3(0f,
+                    gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0f),
                 gemDoTweenProperties.DoFollowDuration).OnComplete(() =>
             {
                 transform.parent = target;
-                transform.localPosition = new Vector3(0, gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0);
+                transform.localPosition = new Vector3(0,
+                    gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0);
                 transform.localEulerAngles = Vector3.zero;
             });
-            
+
             CollectedAllGemAmount.Value++;
         }
-        
+
         private void Processes(Gem gem)
         {
             isStacked = true;
-            
+
             CollectedGemSet.Add(gem);
 
             collider.enabled = false;
         }
-        
+
         public void GemSituationalActions()
         {
             this.ObserveEveryValueChanged(_ => isGrew).Where(_ => isGrew)
-                .Subscribe(unit =>
-                {
-                    Growing.StopGrowing();
-                });
-    
+                .Subscribe(unit => { Growing.StopGrowing(); });
+
             this.ObserveEveryValueChanged(_ => isStacked).Where(_ => isStacked)
-                .Subscribe(unit =>
-                {
-                    Growing.StopGrowing();
-                });
+                .Subscribe(unit => { Growing.StopGrowing(); });
         }
-        
+
         #endregion
     }
-    
+
     [Serializable]
     public struct GemDoTweenProperties
     {
-        [Title("Properties")] 
-        [TabGroup("B","DOFollow")]
+        [Title("Properties")] [TabGroup("B", "DOFollow")]
         public float DoFollowDuration;
-        [TabGroup("B","DOFollow")][InfoBox("Space coefficient of the stacked objects")]
+
+        [TabGroup("B", "DOFollow")] [InfoBox("Space coefficient of the stacked objects")]
         public float DoFollowStackSpace;
-             
-        [Title("Properties")] 
-        [TabGroup("B","DOMove")]
+
+        [Title("Properties")] [TabGroup("B", "DOMove")]
         public Vector3 DoMoveUpEndValue;
-        [TabGroup("B","DOMove")]
-        public float DoMoveUpDuration;
+
+        [TabGroup("B", "DOMove")] public float DoMoveUpDuration;
     }
 
     public interface IStackable
@@ -198,6 +193,6 @@ namespace nyy.FG_Case.System_Gem
         bool IsStacked();
         bool CanStackable();
 
-        string GetName();
+        void IncreaseCollectedCount();
     }
 }
