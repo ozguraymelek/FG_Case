@@ -3,26 +3,13 @@ using Sirenix.OdinInspector;
 
 namespace nyy.FG_Case.ReferenceValue
 {
-    [CreateAssetMenu(menuName = "Ref Values/bool", fileName = "new bool", order = 0)]
-    public class BoolRef : RefValue
+    public abstract class BoolRef : RefValue
     {
         #region PROPERTIES
         
-        [ShowInInspector]
-        public bool Value
-        {
-            get => _value;
-
-            set
-            {
-                _value = value;
-                
-                if (OnValueChanged != null)
-                    ValueHasChanged();
-            }
-        }
+        public abstract bool Value { get; set; }
         
-        private bool _value;
+        protected bool _value;
         
         #endregion
         

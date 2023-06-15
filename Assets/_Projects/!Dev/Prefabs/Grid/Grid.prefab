@@ -49,4 +49,4 @@ MonoBehaviour:
     tilePrefab: {fileID: 5903042306629359182, guid: c2e1252eb67ee044d9909b2d6b88867e, type: 3}
   line: 3
   column: 4
-  gridSpacingOffset: 2
+  gridSpacingOffset: 2.5

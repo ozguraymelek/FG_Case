@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using System.Collections.Generic;
 using nyy.FG_Case.System_Data;
 using nyy.FG_Case.System_Gem;
@@ -5,7 +7,6 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace nyy.FG_Case
 {
@@ -133,3 +134,5 @@ namespace nyy.FG_Case
         #endregion
     }
 }
+
+#endif

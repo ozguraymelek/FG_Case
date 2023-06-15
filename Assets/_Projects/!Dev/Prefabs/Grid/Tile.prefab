@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0044107, y: 0.55373603, z: 2.0044107}
-  m_Center: {x: 0, y: 0.22313198, z: -0.00487566}
+  m_Size: {x: 2.0044107, y: 1.208076, z: 2.0044107}
+  m_Center: {x: 0, y: 0.5503019, z: -0.00487566}
 --- !u!114 &5903042306629359182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,9 +60,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnedGemForPool: {fileID: 11400000, guid: cb2bfec6c8ede8146b6ccb60e0fbeb5d, type: 2}
+  GemData: {fileID: 11400000, guid: fdf424997d892ae4a831dcf537c97573, type: 2}
   _gemPool: {fileID: 0}
   currentPlantedGem: {fileID: 0}
-  placed: 0
+  planted: 0
+  plantDelay: 1
 --- !u!1 &4316508876858438776
 GameObject:
   m_ObjectHideFlags: 0

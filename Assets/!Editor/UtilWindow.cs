@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
@@ -33,3 +35,5 @@ namespace nyy.FG_Case.Editor
         }
     }
 }
+
+#endif

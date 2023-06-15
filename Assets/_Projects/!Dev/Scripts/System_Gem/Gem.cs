@@ -8,6 +8,7 @@ using nyy.FG_Case.Extensions;
 using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Data;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 
 namespace nyy.FG_Case.System_Gem
@@ -53,24 +54,32 @@ namespace nyy.FG_Case.System_Gem
 
         private void Start()
         {
-            Growing.CheckGemSituation(this);
+            Growing.CheckGrowing(this);
+            
+            GemSituationalActions();
         }
 
         private void OnDisable()
         {
             CollectedGemSet.Clear();
+            // CollectedAllGemAmount.Value = 0;
         }
 
         #endregion
                 
         #region IMPLEMENTED FUNCTIONS
         
-        public async void Stack(Transform target)
+        public void Stack(Transform target)
         {
-            await UniTask.WhenAll(Move(target, this.GetCancellationTokenOnDestroy()));
+            // await UniTask.WhenAll(Move(target, this.GetCancellationTokenOnDestroy()));
+            Move(target).OnComplete(() =>
+            {
+                SetParent(target);
+                Processes(this);
+            });
             
-            SetParent(target);
-            Processes(this);
+            // SetParent(target);
+            // Processes(this);
         }
 
         public void SetGrowable(bool state)
@@ -96,19 +105,32 @@ namespace nyy.FG_Case.System_Gem
                 
         #region PRIVATE FUNCTIONS
         
-        private List<UniTask> Move(Transform target, CancellationToken ct)
+        // private List<UniTask> Move(Transform target, CancellationToken ct)
+        // {
+        //     var taskList = new List<UniTask>();
+        //
+        //     var seq = DOTween.Sequence();
+        //
+        //     seq.Append(transform.DOLocalMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
+        //
+        //     // SpawnedGemFromPool.Remove(this);
+        //         
+        //     taskList.Add(seq.ToUniTask(cancellationToken: ct));
+        //
+        //     return taskList;
+        // }
+        
+        private Tween Move(Transform target)
         {
             var taskList = new List<UniTask>();
 
             var seq = DOTween.Sequence();
 
             seq.Append(transform.DOLocalMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
-
+            
             // SpawnedGemFromPool.Remove(this);
-                
-            taskList.Add(seq.ToUniTask(cancellationToken: ct));
 
-            return taskList;
+            return seq;
         }
 
         private void SetParent(Transform target)
@@ -121,17 +143,32 @@ namespace nyy.FG_Case.System_Gem
                 transform.localPosition = new Vector3(0, gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0);
                 transform.localEulerAngles = Vector3.zero;
             });
+            
+            CollectedAllGemAmount.Value++;
         }
         
         private void Processes(Gem gem)
         {
             isStacked = true;
             
-            CollectedAllGemAmount.Value++;
-            
             CollectedGemSet.Add(gem);
 
             collider.enabled = false;
+        }
+        
+        public void GemSituationalActions()
+        {
+            this.ObserveEveryValueChanged(_ => isGrew).Where(_ => isGrew)
+                .Subscribe(unit =>
+                {
+                    Growing.StopGrowing();
+                });
+    
+            this.ObserveEveryValueChanged(_ => isStacked).Where(_ => isStacked)
+                .Subscribe(unit =>
+                {
+                    Growing.StopGrowing();
+                });
         }
         
         #endregion

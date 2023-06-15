@@ -34,18 +34,22 @@ namespace nyy.FG_Case.System_Gem
         
         #region PUBLIC FUNCTIONS
         
-        public void CheckGemSituation(Gem gem)
+        public void StopGrowing()
         {
-            this.ObserveEveryValueChanged(_ => gem.isGrew).Where(_ => gem.isGrew)
+            var uid = Guid.NewGuid();
+            _growUpTween.id = uid;
+
+            DOTween.Kill(uid);
+        }
+        
+        public void CheckGrowing(Gem gem)
+        {
+            this.ObserveEveryValueChanged(_ => transform.localScale)
                 .Subscribe(unit =>
                 {
-                    StopGrowing();
-                });
-    
-            this.ObserveEveryValueChanged(_ => gem.isStacked).Where(_ => gem.isStacked)
-                .Subscribe(unit =>
-                {
-                    StopGrowing();
+                    gem.canStackable = transform.localScale.x >= .25f;
+                    gem.isGrew = transform.localScale.x >= 1f;
+                    gem.canGrow = transform.localScale.x < 1f;
                 });
         }
         
@@ -56,14 +60,6 @@ namespace nyy.FG_Case.System_Gem
         private void StartGrowing()
         {
             _growUpTween = transform.DOScale(growingSettings.GrowUpMaxValue, growingSettings.GrowUpDuration);
-        }
-        
-        private void StopGrowing()
-        {
-            var uid = Guid.NewGuid();
-            _growUpTween.id = uid;
-
-            DOTween.Kill(uid);
         }
         
         #endregion
