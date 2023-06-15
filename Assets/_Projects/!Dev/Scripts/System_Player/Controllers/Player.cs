@@ -14,10 +14,13 @@ namespace nyy.FG_Case.PlayerSc
     {
         #region PROPERTIES
 
-        [BoxGroup("Finite State Machine Properties")]
-        public PlayerBaseState CurrentState;
         [BoxGroup("Finite State Machine Properties")][DisableIn(PrefabKind.All)]
         [SerializeField] private PlayerBaseState initState;
+        
+        [BoxGroup("Finite State Machine Properties")]
+        [InfoBox("Will set via script")][DisableIn(PrefabKind.All)]
+        public PlayerBaseState CurrentState;
+        
 
         [TabGroup("A","Interact")]  public Rigidbody rb;
         [TabGroup("A","Interact")] public CapsuleCollider collider;

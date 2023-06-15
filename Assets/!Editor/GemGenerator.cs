@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 
 using System.Collections.Generic;
+using nyy.FG_Case.PlayerSc;
 using nyy.FG_Case.System_Data;
 using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
@@ -16,15 +17,21 @@ namespace nyy.FG_Case
 
         [BoxGroup("Gem Data")] 
         public GemObjectData GemData;
-
+        internal List<GemListItem> TempGemListItems;
+        
         private List<Gem> _createdGems = new List<Gem>();
 
         [Title("Properties")] [TabGroup("Reference")] 
         public bool setReferencePrefab = false;
         
-        [field: SerializeField] 
         [TabGroup("Reference")] [EnableIf("setReferencePrefab")][Indent(3)]
         public GameObject ReferencePrefab;
+        
+        [TabGroup("Reference")] [EnableIf("setReferencePrefab")][Indent(3)]
+        public GemListItem ReferenceListItemPrefab;
+        
+        [TabGroup("Reference")] [EnableIf("setReferencePrefab")][Indent(3)]
+        private Stack _stack;
 
         [field: SerializeField] [TabGroup("A","Gem Characteristics")]
         public string Name;
@@ -82,6 +89,7 @@ namespace nyy.FG_Case
             newGameObject.GetComponentInChildren<Renderer>().sharedMaterial = newMaterial;
             
             SetGemData(newGameObject.GetComponent<Gem>());
+            SetGemUI(newGameObject.GetComponent<Gem>());
             
             AssetDatabase.CreateAsset(newMaterial, $"{MaterialPath}/{Name}.mat");
             AssetDatabase.SaveAssets();
@@ -130,6 +138,28 @@ namespace nyy.FG_Case
             gem.GemProperties.StartingSalePrice = StartingSalePrice;
             gem.GemProperties.Icon = Icon;
             gem.GemProperties.Prefab = gem;
+        }
+
+        private void SetGemUI(Gem gem)
+        {
+            var displayGemRef = FindObjectOfType<DisplayGem>();
+            var listItem = GameObject.Instantiate(ReferenceListItemPrefab, displayGemRef.contentTr);
+
+            listItem.name = Name + " Gem List Item";
+            listItem.Type = Name;
+            listItem.StartingSalePrice = StartingSalePrice;
+            listItem.Icon.sprite = Icon;
+
+            listItem.SetData();
+            
+            SetGemListItems(listItem);
+        }
+
+        private void SetGemListItems(GemListItem gemListItem)
+        {
+            _stack = FindObjectOfType<Stack>();
+
+            TempGemListItems.Add(gemListItem);
         }
         #endregion
     }

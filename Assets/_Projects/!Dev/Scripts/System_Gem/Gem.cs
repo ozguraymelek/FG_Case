@@ -77,9 +77,6 @@ namespace nyy.FG_Case.System_Gem
                 SetParent(target);
                 Processes(this);
             });
-            
-            // SetParent(target);
-            // Processes(this);
         }
 
         public void SetGrowable(bool state)
@@ -96,7 +93,12 @@ namespace nyy.FG_Case.System_Gem
         {
             return canStackable;
         }
-        
+
+        public string GetName()
+        {
+            return GemProperties.Name;
+        }
+
         #endregion  
         
         #region PUBLIC FUNCTIONS
@@ -195,5 +197,7 @@ namespace nyy.FG_Case.System_Gem
         void SetGrowable(bool state);
         bool IsStacked();
         bool CanStackable();
+
+        string GetName();
     }
 }

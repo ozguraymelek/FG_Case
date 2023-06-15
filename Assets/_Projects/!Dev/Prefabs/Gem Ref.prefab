@@ -160,7 +160,7 @@ MonoBehaviour:
   gemDoTweenProperties:
     DoFollowDuration: 0.53
     DoFollowStackSpace: 0.25
-    DoMoveUpEndValue: {x: 0, y: 1, z: 0}
+    DoMoveUpEndValue: {x: 0.1, y: 0, z: 0.1}
     DoMoveUpDuration: 0.61
 --- !u!114 &4032367797213084052
 MonoBehaviour:
