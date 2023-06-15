@@ -35,6 +35,7 @@ namespace nyy.FG_Case.FSMImplement
         private void Idle(Player ctx)
         {
             ctx.rb.velocity = Vector3.zero;
+            // Physics.defaultMaxDepenetrationVelocity = 10f;
         }
         
         #endregion

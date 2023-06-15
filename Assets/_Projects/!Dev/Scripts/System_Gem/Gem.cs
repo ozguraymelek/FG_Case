@@ -122,11 +122,10 @@ namespace nyy.FG_Case.System_Gem
         
         private Tween Move(Transform target)
         {
-            var taskList = new List<UniTask>();
-
             var seq = DOTween.Sequence();
 
-            seq.Append(transform.DOLocalMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
+            // seq.Append(transform.DOMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
+            seq.Append(transform.DOPunchPosition(gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
             
             // SpawnedGemFromPool.Remove(this);
 

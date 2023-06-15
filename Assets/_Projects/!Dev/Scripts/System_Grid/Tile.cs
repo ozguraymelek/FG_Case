@@ -33,11 +33,13 @@ namespace nyy.FG_Case.System_Grid
         public bool planted;
         public float plantDelay;
 
+        public LayerMask mask;
+        
         #endregion
 
         #region EVENT FUNCTIONS
-        
-        private IEnumerator Start()
+
+        private void Start()
         {
             if (_gemPool == null) _gemPool = FindObjectOfType<GemPool>();
             
@@ -45,33 +47,39 @@ namespace nyy.FG_Case.System_Grid
             
             planted = false;
             
-            StartCoroutine(Plant());
-            
-            yield return null;
-            
-            
-        }
-
-        private void Update()
-        {
-            print(planted);
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.TryGetComponent(out Player player) == false) return;
-
-            if (currentPlantedGem.isStacked)
+            this.ObserveEveryValueChanged(_ => planted).Where(_ => planted == false)
+            .Subscribe(unit =>
             {
-                DOVirtual.DelayedCall(plantDelay, () =>
-                {
-                    planted = false;
-                    StartCoroutine(Plant());
-                });
-                
-            }
+                StartCoroutine(Plant());
+            });
         }
 
+        // private void Start()
+        // {
+        //     if (_gemPool == null) _gemPool = FindObjectOfType<GemPool>();
+        //     
+        //     GemObjectPool = _gemPool.GemObjectPool;
+        //     
+        //     planted = false;
+        //     
+        //     
+        //     this.ObserveEveryValueChanged(_ => planted).Where(_ => planted == false)
+        //         .Subscribe(unit =>
+        //         {
+        //             StartCoroutine(Plant());
+        //         });
+        // }
+        //
+        // private void OnTriggerExit(Collider other)
+        // {
+        //     if (other.TryGetComponent(out Player player) == false) return;
+        //
+        //     if (currentPlantedGem.isStacked)
+        //     {
+        //         planted = false;
+        //     }
+        // }
+        
         #endregion
 
         #region IMPLEMENTED FUNCTIONS
@@ -79,6 +87,17 @@ namespace nyy.FG_Case.System_Grid
         #endregion
 
         #region PUBLIC FUNCTIONS
+
+        private void FixedUpdate()
+        {
+            if (currentPlantedGem == null) return;
+            
+            if (Physics.Raycast(transform.position, transform.up, Vector3.one.y,mask) == false)
+            {
+                if(currentPlantedGem.isStacked)
+                    planted = false;
+            }
+        }
 
         #endregion
 
@@ -91,6 +110,9 @@ namespace nyy.FG_Case.System_Grid
             currentPlantedGem = null;
             
             GemObjectPool = _gemPool.GemObjectPool;
+            
+            // var rand = Random.Range(0, GemData.GemDataList.Count);
+            // var gemClone = Instantiate(GemData.GemDataList[rand].Prefab,transform);
             
             var gemClone = GemObjectPool.Get();
             
@@ -109,5 +131,10 @@ namespace nyy.FG_Case.System_Grid
         }
         
         #endregion
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawRay(transform.position,transform.up);
+        }
     }
 }

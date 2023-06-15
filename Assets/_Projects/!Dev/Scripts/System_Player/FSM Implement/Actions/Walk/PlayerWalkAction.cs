@@ -25,6 +25,8 @@ namespace nyy.FG_Case.FSMImplement
         {
             ctx.animator.SetBool(IDWalk, true);
             ctx.animator.SetBool(IDRun, false);
+            
+            // Physics.defaultMaxDepenetrationVelocity = ctx.walkSpeed / Mathf.Abs(Physics.gravity.y);
         }
 
         public override void Updating(Player ctx)
@@ -41,7 +43,7 @@ namespace nyy.FG_Case.FSMImplement
         private void Walk(Player ctx)
         {
             ctx.rb.velocity = ctx.MovementVector.Value
-                                                      * (ctx.walkSpeed * Time.fixedDeltaTime);
+                              * (ctx.walkSpeed * Time.fixedDeltaTime);
         }
         
         private void Rotate(Player ctx)

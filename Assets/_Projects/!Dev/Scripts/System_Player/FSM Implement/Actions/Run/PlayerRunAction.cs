@@ -25,6 +25,8 @@ namespace nyy.FG_Case.FSMImplement
         {
             ctx.animator.SetBool(IDRun, true); 
             ctx.animator.SetBool(IDWalk, false); 
+            
+            // Physics.defaultMaxDepenetrationVelocity = 50;
         }
 
         public override void Updating(Player ctx)

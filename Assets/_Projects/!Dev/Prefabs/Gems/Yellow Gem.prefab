@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6165846538974757286}
+  m_Father: {fileID: 4156236759138756598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3123099506876073560
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: f174eb04aa64b9a408d129e0ceaee0cf, type: 3}
+  - {fileID: 2100000, guid: f7c7430924e63f5408bebca35b06fd77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &6165846538974757285
+--- !u!1 &5727068393982957719
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,24 +91,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6165846538974757286}
+  - component: {fileID: 4156236759138756598}
   - component: {fileID: 6165846538974757288}
   - component: {fileID: -290860433760391383}
   - component: {fileID: 4032367797213084052}
   m_Layer: 0
-  m_Name: Gem Ref
+  m_Name: Yellow Gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6165846538974757286
+--- !u!4 &4156236759138756598
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6165846538974757285}
+  m_GameObject: {fileID: 5727068393982957719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.04, y: 2.06, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -124,7 +124,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6165846538974757285}
+  m_GameObject: {fileID: 5727068393982957719}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6165846538974757285}
+  m_GameObject: {fileID: 5727068393982957719}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab7b05f37da41594ea9106e54e0169f1, type: 3}
@@ -146,10 +146,10 @@ MonoBehaviour:
   GemData: {fileID: 11400000, guid: fdf424997d892ae4a831dcf537c97573, type: 2}
   Growing: {fileID: 4032367797213084052}
   GemProperties:
-    Name: 
-    StartingSalePrice: 0
-    Icon: {fileID: 0}
-    Prefab: {fileID: 0}
+    Name: Yellow Gem
+    StartingSalePrice: 175
+    Icon: {fileID: 21300000, guid: eaede8b24060eb3459cc4f6129993148, type: 3}
+    Prefab: {fileID: -290860433760391383}
   collider: {fileID: 6165846538974757288}
   CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
   isStacked: 0
@@ -160,15 +160,15 @@ MonoBehaviour:
   gemDoTweenProperties:
     DoFollowDuration: 0.53
     DoFollowStackSpace: 0.25
-    DoMoveUpEndValue: {x: 0, y: 1, z: 0}
-    DoMoveUpDuration: 0.61
+    DoMoveUpEndValue: {x: 0.1, y: 0, z: 0.1}
+    DoMoveUpDuration: 0.71
 --- !u!114 &4032367797213084052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6165846538974757285}
+  m_GameObject: {fileID: 5727068393982957719}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9eb50778aa12e1e4d826872395986b74, type: 3}
