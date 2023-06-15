@@ -4,6 +4,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using GenericScriptableArchitecture;
+using nyy.FG_Case.Extensions;
 using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Data;
 using Sirenix.OdinInspector;
@@ -17,6 +18,8 @@ namespace nyy.FG_Case.System_Gem
 
         [BoxGroup] 
         public GemObjectData GemData;
+        [BoxGroup] 
+        public Growing Growing;
         
         [TabGroup("X", "Data")] 
         public GemProperties GemProperties;
@@ -48,6 +51,11 @@ namespace nyy.FG_Case.System_Gem
                 
         #region EVENT FUNCTIONS
 
+        private void Start()
+        {
+            Growing.CheckGemSituation(this);
+        }
+
         private void OnDisable()
         {
             CollectedGemSet.Clear();
@@ -57,12 +65,11 @@ namespace nyy.FG_Case.System_Gem
                 
         #region IMPLEMENTED FUNCTIONS
         
-        public async void Stack(Transform parent)
+        public async void Stack(Transform target)
         {
-            await UniTask.WhenAll(Move(parent, this.GetCancellationTokenOnDestroy()));
+            await UniTask.WhenAll(Move(target, this.GetCancellationTokenOnDestroy()));
             
-            SetParent(parent);
-            
+            SetParent(target);
             Processes(this);
         }
 
@@ -89,34 +96,34 @@ namespace nyy.FG_Case.System_Gem
                 
         #region PRIVATE FUNCTIONS
         
-        protected List<UniTask> Move(Transform target, CancellationToken ct)
+        private List<UniTask> Move(Transform target, CancellationToken ct)
         {
             var taskList = new List<UniTask>();
 
             var seq = DOTween.Sequence();
 
-            seq.Append(transform.DOJump(target.position + new Vector3(0, 0.25f * CollectedAllGemAmount.Value, 0), gemDoTweenProperties.
-                    DoJumpPower,
-                gemDoTweenProperties.DoJumpNums, gemDoTweenProperties.DoJumpDuration)).OnUpdate(() =>
-            {
-                
-            });
-            
+            seq.Append(transform.DOLocalMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
+
             // SpawnedGemFromPool.Remove(this);
                 
             taskList.Add(seq.ToUniTask(cancellationToken: ct));
 
             return taskList;
         }
-        
-        protected void SetParent(Transform parent)
+
+        private void SetParent(Transform target)
         {
-            transform.parent = parent;
-            transform.localPosition = new Vector3(0, 0.25f * CollectedAllGemAmount.Value, 0);
-            transform.localEulerAngles = Vector3.zero;
+            transform.DOFollow(target,
+                target.localPosition + new Vector3(0f, gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0f), 
+                gemDoTweenProperties.DoFollowDuration).OnComplete(() =>
+            {
+                transform.parent = target;
+                transform.localPosition = new Vector3(0, gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0);
+                transform.localEulerAngles = Vector3.zero;
+            });
         }
         
-        protected void Processes(Gem gem)
+        private void Processes(Gem gem)
         {
             isStacked = true;
             
@@ -129,29 +136,21 @@ namespace nyy.FG_Case.System_Gem
         
         #endregion
     }
-
-    [Serializable]
-    public enum Type
-    {
-        Green, Yellow, Pink
-    }
     
     [Serializable]
     public struct GemDoTweenProperties
     {
         [Title("Properties")] 
-        [TabGroup("B","DORotate")]
-        public Vector3 DoRotateEndValue;
-        [TabGroup("B","DORotate")]
-        public float DoRotateDuration;
+        [TabGroup("B","DOFollow")]
+        public float DoFollowDuration;
+        [TabGroup("B","DOFollow")][InfoBox("Space coefficient of the stacked objects")]
+        public float DoFollowStackSpace;
              
         [Title("Properties")] 
-        [TabGroup("B","DOJump")]
-        public float DoJumpPower;
-        [TabGroup("B","DOJump")]
-        public int DoJumpNums;
-        [TabGroup("B","DOJump")]
-        public float DoJumpDuration;
+        [TabGroup("B","DOMove")]
+        public Vector3 DoMoveUpEndValue;
+        [TabGroup("B","DOMove")]
+        public float DoMoveUpDuration;
     }
 
     public interface IStackable

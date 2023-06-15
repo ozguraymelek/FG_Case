@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6165846538974757288}
   - component: {fileID: -290860433760391383}
   m_Layer: 0
-  m_Name: Gem
+  m_Name: Gem Ref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,17 +142,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7b05f37da41594ea9106e54e0169f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  GemData: {fileID: 11400000, guid: fdf424997d892ae4a831dcf537c97573, type: 2}
+  GemProperties:
+    <Name>k__BackingField: 
+    <StartingSalePrice>k__BackingField: 0
+    <Icon>k__BackingField: {fileID: 0}
+    <Prefab>k__BackingField: {fileID: 0}
   collider: {fileID: 6165846538974757288}
   CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
   isStacked: 0
   canGrow: 0
-  canStack: 0
+  canStackable: 0
   isGrew: 0
-  CollectedGemSet: {fileID: 0}
+  CollectedGemSet: {fileID: 11400000, guid: c06c77e69ca2d954d8f99e4bc3f4f9d1, type: 2}
   gemDoTweenProperties:
-    DoRotateEndValue: {x: 0, y: 0, z: 0}
-    DoRotateDuration: 0
-    DoJumpPower: 0
-    DoJumpNums: 0
-    DoJumpDuration: 0
+    DoFollowDuration: 0.53
+    DoFollowStackSpace: 0.25
+    DoMoveUpEndValue: {x: 0, y: 1, z: 0}
+    DoMoveUpDuration: 0.61

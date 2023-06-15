@@ -21,9 +21,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  NumberOfGemToAdd: 0
   GemDataList:
-  - <Name>k__BackingField: Green Gem
+  - <Name>k__BackingField: Red Gem
     <StartingSalePrice>k__BackingField: 100
-    <Icon>k__BackingField: {fileID: 21300000, guid: 38503639e05cb71439fa787bfee60f92, type: 3}
-    <Prefab>k__BackingField: {fileID: -290860433760391383, guid: c0dfb4ef59a30644f926b8f70aa377db, type: 3}
+    <Icon>k__BackingField: {fileID: 0}
+    <Prefab>k__BackingField: {fileID: -290860433760391383, guid: 00a39e3f79c77fc4a8b28731c1876f31, type: 3}

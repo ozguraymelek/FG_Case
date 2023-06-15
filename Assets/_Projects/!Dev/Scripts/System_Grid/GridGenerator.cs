@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using GenericScriptableArchitecture;
+using nyy.FG_Case.System_Gem;
+using nyy.FG_Case.SystemPool;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Pool;
 using Object = UnityEngine.Object;
 
 namespace nyy.FG_Case.System_Grid
@@ -34,7 +38,7 @@ namespace nyy.FG_Case.System_Grid
         #endregion
                 
         #region EVENT FUNCTIONS
-        
+
         #endregion
                 
         #region IMPLEMENTED FUNCTIONS

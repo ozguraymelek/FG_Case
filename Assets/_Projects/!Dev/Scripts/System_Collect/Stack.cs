@@ -9,7 +9,7 @@ namespace nyy.FG_Case.PlayerSc
         #region PROPERTIES
 
         [TabGroup("Components")] 
-        [SerializeField] private Transform stackHolder;
+        public Transform stackHolder;
         
         #endregion
                 

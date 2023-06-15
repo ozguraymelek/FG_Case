@@ -16,7 +16,11 @@ MonoBehaviour:
   - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
     _guid: ab7b05f37da41594ea9106e54e0169f1
   _genericArgumentValues:
-  - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+        _guid: ab7b05f37da41594ea9106e54e0169f1
+      _assemblyGUID: 68348309784dc6c4d8e2ce12e4a0da8f
   - _array: []
   - _array: []
   - _array:
@@ -24,7 +28,11 @@ MonoBehaviour:
       - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
         _guid: ab7b05f37da41594ea9106e54e0169f1
       _assemblyGUID: be4aebb24fc92474c943a6761587abce
-  - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+        _guid: ab7b05f37da41594ea9106e54e0169f1
+      _assemblyGUID: 93572d0a80585644dac311df122ca2fd
   - _array: []
   - _array: []
   - _array: []
@@ -41,6 +49,17 @@ MonoBehaviour:
       AssemblyGUID: 
       _argNames:
       - TUnityObject
+    - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`1, GenericScriptableArchitecture
+      _guid: a7bc4098e6b34b50b334b6c504e7f4f5
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`1,
+        GenericScriptableArchitecture.Timeline
+      _guid: 935ecf86bcab4cb3b1dc812da9f3c2b8
+      AssemblyGUID: 
+      _argNames:
+      - T
   _genericTypeKeys:
   - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`1,
       GenericScriptableArchitecture.Timeline

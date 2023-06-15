@@ -59,6 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e94152cf1c82152449a5eebcf6c761d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnedGemForPool: {fileID: 11400000, guid: cb2bfec6c8ede8146b6ccb60e0fbeb5d, type: 2}
+  _gemPool: {fileID: 0}
+  currentPlantedGem: {fileID: 0}
+  placed: 0
 --- !u!1 &4316508876858438776
 GameObject:
   m_ObjectHideFlags: 0

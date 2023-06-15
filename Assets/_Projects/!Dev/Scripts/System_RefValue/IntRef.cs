@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -8,7 +9,7 @@ namespace nyy.FG_Case.ReferenceValue
     {
         #region PROPERTIES
         
-        [ShowInInspector]
+        [ShowInInspector] [InlineButton("ResetValue")]
         public int Value
         {
             get => _value;
@@ -26,8 +27,13 @@ namespace nyy.FG_Case.ReferenceValue
         
         #endregion
         
-        #region PUBLIC FUNCTIONS
+        #region PRIVATE FUNCTIONS
         
+        private void ResetValue()
+        {
+            _value = 0;
+        }
+
         #endregion
     }
 }

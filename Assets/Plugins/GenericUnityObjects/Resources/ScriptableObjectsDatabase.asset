@@ -33,8 +33,12 @@ MonoBehaviour:
       com.unity.cinemachine.editor
   - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
   _values:
-  - _keys: []
-    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_68348309784dc6c4d8e2ce12e4a0da8f,
+        z_ScriptableEventEmitter_Gem
   - _keys: []
     _values: []
   - _keys: []
@@ -45,8 +49,12 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_be4aebb24fc92474c943a6761587abce,
         z_RuntimeSet_Gem
-  - _keys: []
-    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_93572d0a80585644dac311df122ca2fd,
+        z_ScriptableEvent_Gem
   - _keys: []
     _values: []
   - _keys: []

@@ -34,14 +34,14 @@ namespace nyy.FG_Case
         [field: SerializeField]  [TabGroup("A","Gem Characteristics")]
         public Sprite Icon;
         
-        [TabGroup("A","Gem Characteristics")] public bool HDROn = false;
+        [TabGroup("A","Gem Characteristics")] public bool Emission = false;
         [field: SerializeField] 
-        [TabGroup("A","Gem Characteristics")] [ShowIf("HDROn")][Indent(3)]
+        [TabGroup("A","Gem Characteristics")] [ShowIf("Emission")][Indent(3)]
         [ColorUsage(showAlpha: true, true)]
         public Color ColorHDR;
         
         [field: SerializeField] 
-        [TabGroup("A","Gem Characteristics")][HideIf("HDROn")][Indent(3)]
+        [TabGroup("A","Gem Characteristics")][HideIf("Emission")][Indent(3)]
         public Color Color;
         
         [TabGroup("A/Paths","Locations")]
@@ -75,7 +75,7 @@ namespace nyy.FG_Case
             var newMaterial = new Material(Shader.Find("Standard"))
             {
                 name = Name, 
-                color = HDROn ? ColorHDR : Color
+                color = Emission ? ColorHDR : Color
             };
                 
             newGameObject.GetComponentInChildren<Renderer>().sharedMaterial = newMaterial;
