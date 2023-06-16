@@ -20,7 +20,7 @@ namespace nyy.FG_Case.PlayerSc
 
         [Title("Properties")] 
         [TabGroup("B", "Stack Data")]
-        public int CollectedAllGemAmount;
+        public IntRef CollectedAllGemAmount;
         
         [TabGroup("References")] 
         public GemGenerator GemGenerator;
@@ -52,7 +52,7 @@ namespace nyy.FG_Case.PlayerSc
             
             gem.Stack(stackHolder);
             
-            CollectedAllGemAmount += 1;
+            CollectedAllGemAmount.Value += 1;
             
             FindCorrectGemItemList(gem);
             
