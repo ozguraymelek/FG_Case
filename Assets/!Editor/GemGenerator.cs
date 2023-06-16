@@ -5,6 +5,7 @@ using GenericScriptableArchitecture;
 using nyy.FG_Case.PlayerSc;
 using nyy.FG_Case.System_Data;
 using nyy.FG_Case.System_Gem;
+using nyy.FG_Case.System_UI;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEditor;

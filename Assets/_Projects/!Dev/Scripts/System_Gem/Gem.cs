@@ -42,6 +42,8 @@ namespace nyy.FG_Case.System_Gem
 
         [TabGroup("C", "DoTween Settings")] [SerializeField]
         private GemDoTweenProperties gemDoTweenProperties;
+
+        public GemListItem gemListItemRef;
         
         #endregion
 
@@ -89,9 +91,9 @@ namespace nyy.FG_Case.System_Gem
             return canStackable;
         }
         
-        public void IncreaseCollectedCount()
+        public void SetGemListRef(GemListItem gemListItem)
         {
-            
+            gemListItemRef = gemListItem;
         }
 
         public string GetName()
@@ -195,5 +197,6 @@ namespace nyy.FG_Case.System_Gem
         bool CanStackable();
 
         string GetName();
+        void SetGemListRef(GemListItem gemListItem);
     }
 }

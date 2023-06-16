@@ -44,7 +44,9 @@ namespace nyy.FG_Case.PlayerSc
             if (gem.CanStackable() == false) return;
                 
             gem.Stack(stackHolder);
-            FindGemList(gem);
+            
+            FindCorrectGemItemList(gem);
+            
             gem.SetGrowable(false);
         }
         
@@ -60,13 +62,14 @@ namespace nyy.FG_Case.PlayerSc
                 
         #region PRIVATE FUNCTIONS
 
-        private void FindGemList(IStackable gem)
+        private void FindCorrectGemItemList(IStackable gem)
         {
             foreach (var gemListItem in GemList)
             {
                 if (gemListItem.Type == gem.GetName())
                 {
-                    gemListItem.CollectedCount.Value += 1;
+                    gem.SetGemListRef(gemListItem);
+                    gemListItem.IncreaseCount();
                 }
             }
         }

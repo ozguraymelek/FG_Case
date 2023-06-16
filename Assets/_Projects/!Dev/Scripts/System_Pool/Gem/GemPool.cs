@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
-namespace nyy.FG_Case.SystemPool
+namespace nyy.FG_Case.System_Pool
 {
     public class GemPool : MonoBehaviour , IEventListener<Gem>
     {

@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using nyy.FG_Case.Utils;
     
-namespace nyy.FG_Case
+namespace nyy.FG_Case.System_Gem
 {
     public class GemListItem : MonoBehaviour
     {
@@ -63,9 +63,7 @@ namespace nyy.FG_Case
 
         public void IncreaseCount()
         {
-            print("b");
-            CollectedCount.Value = 31;
-            print("a");
+            CollectedCount.Value ++;
         }
         #endregion  
                 

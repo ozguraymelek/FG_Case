@@ -1,17 +1,12 @@
-using System;
 using System.Collections;
-using DG.Tweening;
 using GenericScriptableArchitecture;
-using nyy.FG_Case.PlayerSc;
-using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Data;
 using nyy.FG_Case.System_Gem;
-using nyy.FG_Case.SystemPool;
+using nyy.FG_Case.System_Pool;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Pool;
-using Random = UnityEngine.Random;
 
 namespace nyy.FG_Case.System_Grid
 {

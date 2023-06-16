@@ -3,7 +3,7 @@ using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace nyy.FG_Case
+namespace nyy.FG_Case.System_UI
 {
     public class DisplayGem : MonoBehaviour
     {
