@@ -23,6 +23,9 @@ namespace nyy.FG_Case
         [TabGroup("Settings")]
         public bool canSale;
         
+        [Title("Events")] 
+        public ScriptableEvent<Gem,Transform> SaleAnimationEvent;
+        
         [TabGroup("C","DoTween Settings")]
         [SerializeField] private SaleDoTweenProperties saleDoTweenProperties;
         #endregion
@@ -37,30 +40,31 @@ namespace nyy.FG_Case
 
         #region PUBLIC FUNCTIONS
 
-        public void SaleGem(Vector3 targetPos)
+        public void SaleGem(Transform targetPos)
         {
             var currentGem = CollectedGemSet[^1];
             currentGem.transform.parent = null;
 
-            var tween = currentGem.transform.DOJump(targetPos
+            var tween = currentGem.transform.DOJump(targetPos.position
                 , saleDoTweenProperties.DoJumpPower, saleDoTweenProperties.DoJumpNums,
                 saleDoTweenProperties.DoJumpDuration);
             
             CollectedGemSet.Remove(currentGem);
-
+            
             tween.OnComplete(() =>
             {
                 CollectedAllGemAmount.Value -= 1;
-                Price(currentGem);
+                Price(currentGem, targetPos);
             });
         }
         #endregion
 
         #region PRIVATE FUNCTIONS
 
-        private void Price(Gem gem)
+        private void Price(Gem gem, Transform transform)
         {
             PlayerCoin.Value += CalculatePrice(gem);
+            SaleAnimationEvent.Invoke(gem, transform);
         }
 
         public static int CalculatePrice(Gem gem)

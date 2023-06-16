@@ -39,8 +39,13 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_68348309784dc6c4d8e2ce12e4a0da8f,
         z_ScriptableEventEmitter_Gem
-  - _keys: []
-    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+      - _typeNameAndAssembly: UnityEngine.Transform, UnityEngine.CoreModule
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_06a0b45653ef2414f8b8ce6a9b51ec84,
+        z_ScriptableEventEmitter_Gem_Transform
   - _keys: []
     _values: []
   - _keys:
@@ -59,8 +64,13 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_93572d0a80585644dac311df122ca2fd,
         z_ScriptableEvent_Gem
-  - _keys: []
-    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+      - _typeNameAndAssembly: UnityEngine.Transform, UnityEngine.CoreModule
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_7ce9a9da11839a748983057a3929f201,
+        z_ScriptableEvent_Gem_Transform
   - _keys: []
     _values: []
   - _keys: []

@@ -46,7 +46,8 @@ namespace nyy.FG_Case.System_Sale
             if (_stayedTime < SalesDelayTime.Value)
                 return;
 
-            player.SaleGem(transform.position + RandomPos());
+            // player.SaleGem(transform.position + RandomPos());
+            player.SaleGem(transform);
 
             _stayedTime = 0;
         }

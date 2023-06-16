@@ -1600,37 +1600,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295171358}
   m_CullTransparentMesh: 0
---- !u!1 &338417787
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 338417788}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &338417788
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338417787}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 673359883}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &363172119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,6 +3722,7 @@ GameObject:
   - component: {fileID: 673359883}
   - component: {fileID: 673359882}
   - component: {fileID: 673359884}
+  - component: {fileID: 673359885}
   m_Layer: 0
   m_Name: Sale Area
   m_TagString: Untagged
@@ -3786,7 +3756,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4684984826983625}
-  - {fileID: 338417788}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3804,6 +3773,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SalesDelayTime: {fileID: 11400000, guid: 10b9671873eb1014f989102ce6b230f3, type: 2}
   CollectedGemSet: {fileID: 11400000, guid: c06c77e69ca2d954d8f99e4bc3f4f9d1, type: 2}
+--- !u!114 &673359885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673359881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af10e5e9dda49dc4fa8f3d198505cc71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textEarnedMoneyPopUp: {fileID: 3018792754628799425, guid: bcec887c46ce62e4e913001b07546500, type: 3}
+  camera: {fileID: 805600413}
+  SaleAnimationEvent: {fileID: 11400000, guid: d08c3ec9a1c69d541b60c2ebe6745e76, type: 2}
+  animationDoTweenSettings:
+    MoneyMoveDuration: 0
+    PopUpMoveTargetPosition: {x: 0, y: 4, z: 0}
+    PopUpMoveDuration: 1
+    PopUpRotateTargetRotation: {x: 0, y: 90, z: 0}
+    PopUpRotateDuration: 0.53
 --- !u!1 &678581519
 GameObject:
   m_ObjectHideFlags: 0
@@ -6733,31 +6723,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217945501}
   m_Mesh: {fileID: -5495902117074765545, guid: 5f96e6b2e54e3be4f8a9688933d665e0, type: 3}
---- !u!1 &1244743266 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5029447829516728258, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-  m_PrefabInstance: {fileID: 5029447829463741702}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1244743272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244743266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fd558bde27db48488ace03501b59627, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerCoin: {fileID: 11400000, guid: 3167b29226184c144bd0b3571a46fba9, type: 2}
-  CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
-  CollectedGemSet: {fileID: 11400000, guid: c06c77e69ca2d954d8f99e4bc3f4f9d1, type: 2}
-  canSale: 0
-  saleDoTweenProperties:
-    DoJumpPower: 1.5
-    DoJumpNums: 2
-    DoJumpDuration: 0.5
 --- !u!1 &1249890682
 GameObject:
   m_ObjectHideFlags: 0
@@ -10654,26 +10619,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: GemGenerator
+    - target: {fileID: 1244743272, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
+      propertyPath: SaleAnimationEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 37894e59a4e630e468100af5d04e5f42, type: 2}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: GemListItems
-      value: 
-      objectReference: {fileID: 11400000, guid: db470d48f5d0c3f48b8db7e91bb5a86c, type: 2}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: GemList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: IncreaseCountEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: e614583dbeb7ecc4193032fb8c561b96, type: 2}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: CollectedAllGemAmount
-      value: 
-      objectReference: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
+      objectReference: {fileID: 11400000, guid: d08c3ec9a1c69d541b60c2ebe6745e76, type: 2}
     - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
       propertyPath: GemList.Array.data[0]
       value: 
@@ -10682,54 +10631,6 @@ PrefabInstance:
       propertyPath: GemList.Array.data[1]
       value: 
       objectReference: {fileID: 835299942}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: GemListItems.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: GemListItems.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: GemListItems.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: IncreaseCount.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: IncreaseCount.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: IncreaseCount.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: IncreaseCount.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: IncreaseCount.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: IncreaseCount
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: IncreaseCount.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: nyy.FG_Case.GemListItem, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: IncreaseCount.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829516728256, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: walkSpeed
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029447829516728256, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
-      propertyPath: coin.value
-      value: 
-      objectReference: {fileID: 11400000, guid: 3167b29226184c144bd0b3571a46fba9, type: 2}
     - target: {fileID: 5029447829516728256, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
       propertyPath: virtualCamera
       value: 

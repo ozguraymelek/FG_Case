@@ -1137,6 +1137,7 @@ GameObject:
   - component: {fileID: 5029447829516728257}
   - component: {fileID: 5029447829516728256}
   - component: {fileID: 5029447829463741704}
+  - component: {fileID: 1244743272}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1222,16 +1223,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6524ae91d890b47a60f41ee6c2a1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState: {fileID: 0}
   initState: {fileID: 11400000, guid: a1a06714856861646b382fbe5062a589, type: 2}
+  CurrentState: {fileID: 0}
   rb: {fileID: 5029447829516728270}
   collider: {fileID: 5029447829516728257}
   animator: {fileID: 1347786312287730859}
   virtualCamera: {fileID: 0}
   MovementVector: {fileID: 11400000, guid: a761fe8e30a598a498f0e8bd12373d0c, type: 2}
-  walkSpeed: 90
+  walkSpeed: 200
   runSpeed: 200
   rotationSpeed: 50
+  coin:
+    value: {fileID: 11400000, guid: 3167b29226184c144bd0b3571a46fba9, type: 2}
   OnJoystickTriggered: {fileID: 11400000, guid: 35a09f0778644004b8dd580ff8ab38ee, type: 2}
 --- !u!114 &5029447829463741704
 MonoBehaviour:
@@ -1245,10 +1248,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09c2b035c11d7a41a1b41d8febf7da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GemListItems:
+  CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
+  GemGenerator: {fileID: 11400000, guid: 37894e59a4e630e468100af5d04e5f42, type: 2}
+  GemListItems: {fileID: 11400000, guid: db470d48f5d0c3f48b8db7e91bb5a86c, type: 2}
+  GemList:
   - {fileID: 0}
   - {fileID: 0}
   stackHolder: {fileID: 6055417078847504091}
+--- !u!114 &1244743272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029447829516728258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd558bde27db48488ace03501b59627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCoin: {fileID: 11400000, guid: 3167b29226184c144bd0b3571a46fba9, type: 2}
+  CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
+  CollectedGemSet: {fileID: 11400000, guid: c06c77e69ca2d954d8f99e4bc3f4f9d1, type: 2}
+  canSale: 0
+  saleDoTweenProperties:
+    DoJumpPower: 1.5
+    DoJumpNums: 2
+    DoJumpDuration: 0.5
 --- !u!1 &5038583736202538139
 GameObject:
   m_ObjectHideFlags: 0
