@@ -61,17 +61,10 @@ namespace nyy.FG_Case.System_Gem
 
         #region IMPLEMENTED FUNCTIONS
 
-        public void Stack(Transform target)
-        {
-            // await UniTask.WhenAll(Move(target, this.GetCancellationTokenOnDestroy()));
-            // CollectedAllGemAmount.Value += 1;
-            collider.enabled = false;
-            Move(target).OnComplete(() =>
-            {
-                SetParent(target);
-                Processes(this);
-            });
-        }
+        // public void Stack(Transform target)
+        // {
+        //     
+        // }
 
         public void SetGrowable(bool state)
         {
@@ -126,31 +119,28 @@ namespace nyy.FG_Case.System_Gem
         //     return taskList;
         // }
 
-        private Tween Move(Transform target)
+        public void Stack(Transform target)
         {
-            var seq = DOTween.Sequence();
-
-            // seq.Append(transform.DOMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
-            seq.Append(transform.DOPunchPosition(gemDoTweenProperties.DoMoveUpEndValue,
-                gemDoTweenProperties.DoMoveUpDuration));
+            collider.enabled = false;
             
-            // SpawnedGemFromPool.Remove(this);
-
-            return seq;
-        }
-
-        private void SetParent(Transform target)
-        {
             transform.DOFollow(target,
                 target.localPosition + new Vector3(0f,
                     gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0f),
                 gemDoTweenProperties.DoFollowDuration).OnComplete(() =>
             {
-                transform.parent = target;
-                transform.localPosition = new Vector3(0,
-                    gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0);
-                transform.localEulerAngles = Vector3.zero;
+                SetParent(target);
+                Processes(this);
             });
+        }
+
+        private void SetParent(Transform target)
+        {
+            transform.parent = target;
+            transform.localPosition = new Vector3(0,
+                gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0);
+            transform.localEulerAngles = Vector3.zero;
+            
+            CollectedAllGemAmount.Value += 1;
         }
 
         private void Processes(Gem gem)

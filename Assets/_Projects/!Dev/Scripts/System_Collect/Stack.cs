@@ -47,12 +47,8 @@ namespace nyy.FG_Case.PlayerSc
             if (other.TryGetComponent(out IStackable gem) == false) return;
             if (gem.IsStacked() == true) return;
             if (gem.CanStackable() == false) return;
-                
-            print("dsadas");
             
             gem.Stack(stackHolder);
-            
-            CollectedAllGemAmount.Value += 1;
             
             FindCorrectGemItemList(gem);
             

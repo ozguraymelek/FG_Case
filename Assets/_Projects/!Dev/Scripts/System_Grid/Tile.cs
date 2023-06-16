@@ -41,39 +41,13 @@ namespace nyy.FG_Case.System_Grid
             GemObjectPool = _gemPool.GemObjectPool;
             
             planted = false;
-            StartCoroutine(Plant());
-            // this.ObserveEveryValueChanged(_ => planted).Where(_ => planted == false)
-            // .Subscribe(unit =>
-            // {
-            //     StartCoroutine(Plant());
-            // });
+            
+            this.ObserveEveryValueChanged(_ => planted).Where(_ => planted == false)
+            .Subscribe(unit =>
+            {
+                StartCoroutine(Plant());
+            });
         }
-
-        // private void Start()
-        // {
-        //     if (_gemPool == null) _gemPool = FindObjectOfType<GemPool>();
-        //     
-        //     GemObjectPool = _gemPool.GemObjectPool;
-        //     
-        //     planted = false;
-        //     
-        //     
-        //     this.ObserveEveryValueChanged(_ => planted).Where(_ => planted == false)
-        //         .Subscribe(unit =>
-        //         {
-        //             StartCoroutine(Plant());
-        //         });
-        // }
-        //
-        // private void OnTriggerExit(Collider other)
-        // {
-        //     if (other.TryGetComponent(out Player player) == false) return;
-        //
-        //     if (currentPlantedGem.isStacked)
-        //     {
-        //         planted = false;
-        //     }
-        // }
         
         #endregion
 
@@ -85,13 +59,13 @@ namespace nyy.FG_Case.System_Grid
 
         private void FixedUpdate()
         {
-            // if (currentPlantedGem == null) return;
-            //
-            // if (Physics.Raycast(transform.position, transform.up, Vector3.one.y,mask) == false)
-            // {
-            //     if(currentPlantedGem.isStacked)
-            //         planted = false;
-            // }
+            if (currentPlantedGem == null) return;
+            
+            if (Physics.Raycast(transform.position, transform.up, Vector3.one.y,mask) == false)
+            {
+                if(currentPlantedGem.isStacked)
+                    planted = false;
+            }
         }
 
         #endregion
