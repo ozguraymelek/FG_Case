@@ -24,6 +24,11 @@ namespace nyy.FG_Case.System_Sale
                 
         #region EVENT FUNCTIONS
 
+        private void OnDisable()
+        {
+            CollectedGemSet.Clear();
+        }
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Sale player) == false) return;
@@ -40,8 +45,8 @@ namespace nyy.FG_Case.System_Sale
 
             if (_stayedTime < SalesDelayTime.Value)
                 return;
-            
-            player.SaleGem(transform);
+
+            player.SaleGem(transform.position + RandomPos());
 
             _stayedTime = 0;
         }
@@ -65,7 +70,16 @@ namespace nyy.FG_Case.System_Sale
         #endregion  
                 
         #region PRIVATE FUNCTIONS
-        
+
+        private Vector3 RandomPos()
+        {
+            var randX = UnityEngine.Random.Range(-transform.localScale.x, transform.localScale.x);
+            var randZ = UnityEngine.Random.Range(-transform.localScale.x, transform.localScale.z);
+
+            var randomPos = new Vector3(randX, 0f, randZ);
+
+            return randomPos;
+        }
         #endregion
     }
 }

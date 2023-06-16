@@ -48,7 +48,7 @@ namespace nyy.FG_Case.System_Gem
         #endregion
 
         #region EVENT FUNCTIONS
-
+        
         private void Start()
         {
             Growing.CheckGrowing(this);
@@ -56,11 +56,6 @@ namespace nyy.FG_Case.System_Gem
             GemSituationalActions();
         }
 
-        private void OnDisable()
-        {
-            CollectedGemSet.Clear();
-            // CollectedAllGemAmount.Value = 0;
-        }
 
         #endregion
 
@@ -69,6 +64,8 @@ namespace nyy.FG_Case.System_Gem
         public void Stack(Transform target)
         {
             // await UniTask.WhenAll(Move(target, this.GetCancellationTokenOnDestroy()));
+            // CollectedAllGemAmount.Value += 1;
+            collider.enabled = false;
             Move(target).OnComplete(() =>
             {
                 SetParent(target);
@@ -79,6 +76,11 @@ namespace nyy.FG_Case.System_Gem
         public void SetGrowable(bool state)
         {
             canGrow = state;
+        }
+
+        public int GetCollectedAllGemAmountValue()
+        {
+            return CollectedAllGemAmount.Value;
         }
 
         public bool IsStacked()
@@ -131,7 +133,7 @@ namespace nyy.FG_Case.System_Gem
             // seq.Append(transform.DOMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
             seq.Append(transform.DOPunchPosition(gemDoTweenProperties.DoMoveUpEndValue,
                 gemDoTweenProperties.DoMoveUpDuration));
-
+            
             // SpawnedGemFromPool.Remove(this);
 
             return seq;
@@ -149,8 +151,6 @@ namespace nyy.FG_Case.System_Gem
                     gemDoTweenProperties.DoFollowStackSpace * CollectedAllGemAmount.Value, 0);
                 transform.localEulerAngles = Vector3.zero;
             });
-
-            CollectedAllGemAmount.Value++;
         }
 
         private void Processes(Gem gem)
@@ -158,8 +158,6 @@ namespace nyy.FG_Case.System_Gem
             isStacked = true;
 
             CollectedGemSet.Add(gem);
-
-            collider.enabled = false;
         }
 
         public void GemSituationalActions()
@@ -193,10 +191,13 @@ namespace nyy.FG_Case.System_Gem
     {
         void Stack(Transform parent);
         void SetGrowable(bool state);
+        void SetGemListRef(GemListItem gemListItem);
+
+        int GetCollectedAllGemAmountValue();
         bool IsStacked();
         bool CanStackable();
 
         string GetName();
-        void SetGemListRef(GemListItem gemListItem);
+        
     }
 }

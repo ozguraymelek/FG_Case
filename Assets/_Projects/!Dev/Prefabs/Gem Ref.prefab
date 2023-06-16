@@ -162,6 +162,7 @@ MonoBehaviour:
     DoFollowStackSpace: 0.25
     DoMoveUpEndValue: {x: 0.1, y: 0, z: 0.1}
     DoMoveUpDuration: 0.61
+  gemListItemRef: {fileID: 0}
 --- !u!114 &4032367797213084052
 MonoBehaviour:
   m_ObjectHideFlags: 0

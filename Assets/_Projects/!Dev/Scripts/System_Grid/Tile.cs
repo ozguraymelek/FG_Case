@@ -41,12 +41,12 @@ namespace nyy.FG_Case.System_Grid
             GemObjectPool = _gemPool.GemObjectPool;
             
             planted = false;
-            
-            this.ObserveEveryValueChanged(_ => planted).Where(_ => planted == false)
-            .Subscribe(unit =>
-            {
-                StartCoroutine(Plant());
-            });
+            StartCoroutine(Plant());
+            // this.ObserveEveryValueChanged(_ => planted).Where(_ => planted == false)
+            // .Subscribe(unit =>
+            // {
+            //     StartCoroutine(Plant());
+            // });
         }
 
         // private void Start()
@@ -85,13 +85,13 @@ namespace nyy.FG_Case.System_Grid
 
         private void FixedUpdate()
         {
-            if (currentPlantedGem == null) return;
-            
-            if (Physics.Raycast(transform.position, transform.up, Vector3.one.y,mask) == false)
-            {
-                if(currentPlantedGem.isStacked)
-                    planted = false;
-            }
+            // if (currentPlantedGem == null) return;
+            //
+            // if (Physics.Raycast(transform.position, transform.up, Vector3.one.y,mask) == false)
+            // {
+            //     if(currentPlantedGem.isStacked)
+            //         planted = false;
+            // }
         }
 
         #endregion

@@ -37,21 +37,20 @@ namespace nyy.FG_Case
 
         #region PUBLIC FUNCTIONS
 
-        public void SaleGem(Transform target)
+        public void SaleGem(Vector3 targetPos)
         {
             var currentGem = CollectedGemSet[^1];
             currentGem.transform.parent = null;
 
-            var tween = currentGem.transform.DOJump(target.position
+            var tween = currentGem.transform.DOJump(targetPos
                 , saleDoTweenProperties.DoJumpPower, saleDoTweenProperties.DoJumpNums,
                 saleDoTweenProperties.DoJumpDuration);
-
-            CollectedAllGemAmount.Value--;
-
+            
             CollectedGemSet.Remove(currentGem);
 
             tween.OnComplete(() =>
             {
+                CollectedAllGemAmount.Value -= 1;
                 Price(currentGem);
             });
         }

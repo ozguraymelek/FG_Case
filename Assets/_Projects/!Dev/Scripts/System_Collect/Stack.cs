@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GenericScriptableArchitecture;
+using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -17,6 +18,10 @@ namespace nyy.FG_Case.PlayerSc
     {
         #region PROPERTIES
 
+        [Title("Properties")] 
+        [TabGroup("B", "Stack Data")]
+        public int CollectedAllGemAmount;
+        
         [TabGroup("References")] 
         public GemGenerator GemGenerator;
         
@@ -43,13 +48,17 @@ namespace nyy.FG_Case.PlayerSc
             if (gem.IsStacked() == true) return;
             if (gem.CanStackable() == false) return;
                 
+            print("dsadas");
+            
             gem.Stack(stackHolder);
+            
+            CollectedAllGemAmount += 1;
             
             FindCorrectGemItemList(gem);
             
             gem.SetGrowable(false);
         }
-        
+
         #endregion
                 
         #region IMPLEMENTED FUNCTIONS
