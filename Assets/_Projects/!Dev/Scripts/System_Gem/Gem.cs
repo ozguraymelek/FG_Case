@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using GenericScriptableArchitecture;
 using nyy.FG_Case.Extensions;
+using nyy.FG_Case.PlayerSc;
 using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Data;
 using Sirenix.OdinInspector;
@@ -87,7 +88,7 @@ namespace nyy.FG_Case.System_Gem
         {
             return canStackable;
         }
-
+        
         public void IncreaseCollectedCount()
         {
             
@@ -193,6 +194,6 @@ namespace nyy.FG_Case.System_Gem
         bool IsStacked();
         bool CanStackable();
 
-        void IncreaseCollectedCount();
+        string GetName();
     }
 }

@@ -46,9 +46,13 @@ MonoBehaviour:
   - _keys:
     - _collection:
       - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: nyy.FG_Case.GemListItem, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_be4aebb24fc92474c943a6761587abce,
         z_RuntimeSet_Gem
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c95660654f9bf5947a7bf05339c21ea5,
+        z_RuntimeSet_GemListItem
   - _keys:
     - _collection:
       - _typeNameAndAssembly: nyy.FG_Case.System_Gem.Gem, Assembly-CSharp

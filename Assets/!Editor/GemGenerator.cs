@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 
 using System.Collections.Generic;
+using GenericScriptableArchitecture;
 using nyy.FG_Case.PlayerSc;
 using nyy.FG_Case.System_Data;
 using nyy.FG_Case.System_Gem;
@@ -17,7 +18,7 @@ namespace nyy.FG_Case
 
         [BoxGroup("Gem Data")] 
         public GemObjectData GemData;
-        internal List<GemListItem> TempGemListItems;
+        public RuntimeSet<GemListItem> TempGemListItems;
         
         private List<Gem> _createdGems = new List<Gem>();
 
@@ -33,33 +34,30 @@ namespace nyy.FG_Case
         [TabGroup("Reference")] [EnableIf("setReferencePrefab")][Indent(3)]
         private Stack _stack;
 
-        [field: SerializeField] [TabGroup("A","Gem Characteristics")]
+        [TabGroup("A","Gem Characteristics")]
         public string Name;
 
-        [field: SerializeField]  [TabGroup("A","Gem Characteristics")]
+        [TabGroup("A","Gem Characteristics")]
         public int StartingSalePrice;
 
-        [field: SerializeField]  [TabGroup("A","Gem Characteristics")]
+        [TabGroup("A","Gem Characteristics")]
         public Sprite Icon;
         
         [TabGroup("A","Gem Characteristics")] public bool Emission = false;
-        [field: SerializeField] 
         [TabGroup("A","Gem Characteristics")] [ShowIf("Emission")][Indent(3)]
         [ColorUsage(showAlpha: true, true)]
         public Color ColorHDR;
         
-        [field: SerializeField] 
         [TabGroup("A","Gem Characteristics")][HideIf("Emission")][Indent(3)]
         public Color Color;
         
         [TabGroup("A/Paths","Locations")]
         public bool hidePaths = true;
-        [field: SerializeField]
         [DisableIf("hidePaths")]
         [TabGroup("A/Paths","Locations")][FolderPath][Indent(3)]
         public string MaterialPath;
 
-        [field: SerializeField] [DisableIf("hidePaths")] [TabGroup("A/Paths", "Locations")] [FolderPath] [Indent(3)]
+        [DisableIf("hidePaths")] [TabGroup("A/Paths", "Locations")] [FolderPath] [Indent(3)]
         public string GemPath;
         
         #endregion

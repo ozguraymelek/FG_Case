@@ -5,6 +5,9 @@ using System.Linq;
 using GenericScriptableArchitecture;
 using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using UniRx;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,13 +17,12 @@ namespace nyy.FG_Case.PlayerSc
     {
         #region PROPERTIES
 
-        
-        
         [TabGroup("References")] 
         public GemGenerator GemGenerator;
         
         [TabGroup("Gem Item List")][ShowInInspector]
-        public static List<GemListItem> GemListItems;
+        public RuntimeSet<GemListItem> GemListItems;
+        public List<GemListItem> GemList;
 
         [TabGroup("Components")] 
         public Transform stackHolder;
@@ -29,9 +31,10 @@ namespace nyy.FG_Case.PlayerSc
                 
         #region EVENT FUNCTIONS
 
-        private void Awake()
+        [Button]
+        private void SA()
         {
-            GemListItems = GemGenerator.TempGemListItems;
+            GemList = GemListItems.ToList();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -41,7 +44,7 @@ namespace nyy.FG_Case.PlayerSc
             if (gem.CanStackable() == false) return;
                 
             gem.Stack(stackHolder);
-            
+            FindGemList(gem);
             gem.SetGrowable(false);
         }
         
@@ -59,11 +62,13 @@ namespace nyy.FG_Case.PlayerSc
 
         private void FindGemList(IStackable gem)
         {
-            // if (gem.GetSc() == GemListItems[0].Prefab)
-            // {
-            //     GemListItems[0].CollectedCount += 1;
-            // }
-
+            foreach (var gemListItem in GemList)
+            {
+                if (gemListItem.Type == gem.GetName())
+                {
+                    gemListItem.CollectedCount.Value += 1;
+                }
+            }
         }
         
         #endregion
