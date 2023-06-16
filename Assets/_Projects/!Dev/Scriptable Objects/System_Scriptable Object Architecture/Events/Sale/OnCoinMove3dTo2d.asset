@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 2038734954, guid: 93572d0a80585644dac311df122ca2fd, type: 3}
-  m_Name: OnGemSold
+  m_Name: OnCoinMove3dTo2d
   m_EditorClassIdentifier: 
   _description: 
   _argNames:

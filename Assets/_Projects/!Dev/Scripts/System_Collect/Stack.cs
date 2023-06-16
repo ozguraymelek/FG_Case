@@ -26,7 +26,7 @@ namespace nyy.FG_Case.PlayerSc
         public GemGenerator GemGenerator;
         
         [TabGroup("Gem Item List")][ShowInInspector]
-        public RuntimeSet<GemListItem> GemListItems;
+        public RuntimeSet<GemListItem> TempGemListItems;
         public List<GemListItem> GemList;
 
         [TabGroup("Components")] 
@@ -39,7 +39,7 @@ namespace nyy.FG_Case.PlayerSc
         [Button]
         private void Set()
         {
-            GemList = GemListItems.ToList();
+            GemList = TempGemListItems.ToList();
         }
 
         private void OnTriggerEnter(Collider other)

@@ -6,7 +6,7 @@ using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace nyy.FG_Case
+namespace nyy.FG_Case.PlayerSc
 {
     public class Sale : MonoBehaviour
     {
@@ -25,6 +25,7 @@ namespace nyy.FG_Case
         
         [Title("Events")] 
         public ScriptableEvent<Gem,Transform> SaleAnimationEvent;
+        public ScriptableEvent<Gem> OnCoinMove3Dto2D;
         
         [TabGroup("C","DoTween Settings")]
         [SerializeField] private SaleDoTweenProperties saleDoTweenProperties;
@@ -45,7 +46,7 @@ namespace nyy.FG_Case
             var currentGem = CollectedGemSet[^1];
             currentGem.transform.parent = null;
 
-            var tween = currentGem.transform.DOJump(targetPos.position
+            var tween = currentGem.transform.DOJump(targetPos.position + RandomPos(targetPos)
                 , saleDoTweenProperties.DoJumpPower, saleDoTweenProperties.DoJumpNums,
                 saleDoTweenProperties.DoJumpDuration);
             
@@ -64,7 +65,10 @@ namespace nyy.FG_Case
         private void Price(Gem gem, Transform transform)
         {
             PlayerCoin.Value += CalculatePrice(gem);
+            
             SaleAnimationEvent.Invoke(gem, transform);
+            
+            OnCoinMove3Dto2D.Invoke(gem);
         }
 
         public static int CalculatePrice(Gem gem)
@@ -74,6 +78,17 @@ namespace nyy.FG_Case
 
             return earnedMoney;
         }
+        
+        private Vector3 RandomPos(Transform targetPos)
+        {
+            var randX = UnityEngine.Random.Range(-targetPos.transform.localScale.x, targetPos.transform.localScale.x);
+            var randZ = UnityEngine.Random.Range(-targetPos.transform.localScale.x, targetPos.transform.localScale.z);
+
+            var randomPos = new Vector3(randX, 0f, randZ);
+
+            return randomPos;
+        }
+        
         #endregion
     }
     

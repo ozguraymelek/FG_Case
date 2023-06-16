@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 2038734954, guid: 93572d0a80585644dac311df122ca2fd, type: 3}
-  m_Name: OnGemSold
+  m_Script: {fileID: 1458994459, guid: c95660654f9bf5947a7bf05339c21ea5, type: 3}
+  m_Name: TempGemListItems
   m_EditorClassIdentifier: 
   _description: 
-  _argNames:
-  - Arg 1
-  _scriptableEventHelper:
-    ListenersExpanded: 0
-    StackTrace:
-      Enabled: 0
+  AddExpanded: 0
+  CountChangeExpanded: 0
+  MoveExpanded: 0
+  RemoveExpanded: 0
+  ReplaceExpanded: 0
+  ResetExpanded: 0

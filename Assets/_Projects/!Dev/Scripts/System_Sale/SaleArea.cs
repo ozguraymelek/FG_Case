@@ -1,5 +1,6 @@
 using System;
 using GenericScriptableArchitecture;
+using nyy.FG_Case.PlayerSc;
 using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
@@ -34,6 +35,9 @@ namespace nyy.FG_Case.System_Sale
             if (other.TryGetComponent(out Sale player) == false) return;
 
             player.canSale = true;
+
+            if (other.TryGetComponent(out IStackable gem) == false) return;
+            
         }
 
         private void OnTriggerStay(Collider other)
@@ -71,16 +75,8 @@ namespace nyy.FG_Case.System_Sale
         #endregion  
                 
         #region PRIVATE FUNCTIONS
-
-        private Vector3 RandomPos()
-        {
-            var randX = UnityEngine.Random.Range(-transform.localScale.x, transform.localScale.x);
-            var randZ = UnityEngine.Random.Range(-transform.localScale.x, transform.localScale.z);
-
-            var randomPos = new Vector3(randX, 0f, randZ);
-
-            return randomPos;
-        }
+        
+        
         #endregion
     }
 }

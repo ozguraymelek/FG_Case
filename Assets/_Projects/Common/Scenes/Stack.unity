@@ -3773,6 +3773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SalesDelayTime: {fileID: 11400000, guid: 10b9671873eb1014f989102ce6b230f3, type: 2}
   CollectedGemSet: {fileID: 11400000, guid: c06c77e69ca2d954d8f99e4bc3f4f9d1, type: 2}
+  GemListItems: {fileID: 11400000, guid: d530ffe19128d0c46ace3ccfb23b0599, type: 2}
 --- !u!114 &673359885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3786,14 +3787,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textEarnedMoneyPopUp: {fileID: 3018792754628799425, guid: bcec887c46ce62e4e913001b07546500, type: 3}
-  camera: {fileID: 805600413}
   SaleAnimationEvent: {fileID: 11400000, guid: d08c3ec9a1c69d541b60c2ebe6745e76, type: 2}
-  animationDoTweenSettings:
-    MoneyMoveDuration: 0
+  popUpDoTweenSettings:
     PopUpMoveTargetPosition: {x: 0, y: 4, z: 0}
     PopUpMoveDuration: 1
-    PopUpRotateTargetRotation: {x: 0, y: 90, z: 0}
-    PopUpRotateDuration: 0.53
+    PopUpRotateTargetRotation: {x: 0, y: 45, z: 0}
+    PopUpRotateDuration: 0.5
 --- !u!1 &678581519
 GameObject:
   m_ObjectHideFlags: 0
@@ -5730,9 +5729,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359c39a3c0d835f4fa0db82cc9278cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinIconPrefab: {fileID: 1856149644251279399, guid: 8a0da50b20f0bef45be1735afc67bc25, type: 3}
+  coinPanel: {fileID: 1489508425}
+  camera: {fileID: 805600413}
   textPlayerCoin: {fileID: 1028579862}
   playerCoin: {fileID: 11400000, guid: 3167b29226184c144bd0b3571a46fba9, type: 2}
   OnPlayerCoinChanged: {fileID: 11400000, guid: 8a8b6489fd1545e4385e8746acbcaca8, type: 2}
+  OnCoinMove3Dto2D: {fileID: 11400000, guid: 7b58e65e9105bb34383c3adf8eb3b60c, type: 2}
+  coinMoveDoTweenSettings:
+    MoneyMoveDuration: 2
 --- !u!1 &1029699328
 GameObject:
   m_ObjectHideFlags: 0
@@ -7705,6 +7710,17 @@ Transform:
   m_Father: {fileID: 1398834434}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1489508425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 710268256631876049, guid: aa07f6ec8aab01a46bac24b290789894, type: 3}
+  m_PrefabInstance: {fileID: 1028579860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1492679279
 GameObject:
   m_ObjectHideFlags: 0
@@ -10620,9 +10636,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1244743272, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
+      propertyPath: OnCoinMove3Dto2D
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b58e65e9105bb34383c3adf8eb3b60c, type: 2}
+    - target: {fileID: 1244743272, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
       propertyPath: SaleAnimationEvent
       value: 
       objectReference: {fileID: 11400000, guid: d08c3ec9a1c69d541b60c2ebe6745e76, type: 2}
+    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
+      propertyPath: GemListItems
+      value: 
+      objectReference: {fileID: 11400000, guid: d530ffe19128d0c46ace3ccfb23b0599, type: 2}
+    - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
+      propertyPath: TempGemListItems
+      value: 
+      objectReference: {fileID: 11400000, guid: db470d48f5d0c3f48b8db7e91bb5a86c, type: 2}
     - target: {fileID: 5029447829463741704, guid: 5639229c39b82cc4abce9b269e2f6a23, type: 3}
       propertyPath: GemList.Array.data[0]
       value: 
