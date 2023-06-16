@@ -32,7 +32,7 @@ namespace nyy.FG_Case.PlayerSc
         #region EVENT FUNCTIONS
 
         [Button]
-        private void SA()
+        private void Set()
         {
             GemList = GemListItems.ToList();
         }

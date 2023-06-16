@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34e2076c00ed43f989504b7ba1dbd404, type: 3}
-  m_Name: OnIncreaseCount
+  m_Name: OnPlayerCoinChanged
   m_EditorClassIdentifier: 
   _description: 
   _argNames: []

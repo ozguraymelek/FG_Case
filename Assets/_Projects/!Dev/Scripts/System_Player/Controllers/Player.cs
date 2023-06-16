@@ -32,6 +32,8 @@ namespace nyy.FG_Case.PlayerSc
         [TabGroup("B","Settings")] public float runSpeed;
         [TabGroup("B","Settings")] public float rotationSpeed;
         
+        [TabGroup("B","Data")] public ReactiveProperty<IntRef> coin;
+        
         [TabGroup("A","Events")]
         [InfoBox("Joystick takes the active input value the moment it is triggered.")]
         public ScriptableEvent OnJoystickTriggered;
@@ -70,7 +72,7 @@ namespace nyy.FG_Case.PlayerSc
         #endregion
 
         #region PRIVATE FUNCTIONS
-
+    
         #endregion
     }
 }
