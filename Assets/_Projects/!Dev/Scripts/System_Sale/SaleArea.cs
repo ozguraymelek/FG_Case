@@ -21,6 +21,7 @@ namespace nyy.FG_Case.System_Sale
         
         [Title("Settings")] 
         private float _stayedTime;
+        
         #endregion
                 
         #region EVENT FUNCTIONS
@@ -35,9 +36,6 @@ namespace nyy.FG_Case.System_Sale
             if (other.TryGetComponent(out Sale player) == false) return;
 
             player.canSale = true;
-
-            if (other.TryGetComponent(out IStackable gem) == false) return;
-            
         }
 
         private void OnTriggerStay(Collider other)
@@ -50,7 +48,6 @@ namespace nyy.FG_Case.System_Sale
             if (_stayedTime < SalesDelayTime.Value)
                 return;
 
-            // player.SaleGem(transform.position + RandomPos());
             player.SaleGem(transform);
 
             _stayedTime = 0;

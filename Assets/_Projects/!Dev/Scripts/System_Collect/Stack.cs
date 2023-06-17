@@ -17,14 +17,9 @@ namespace nyy.FG_Case.PlayerSc
     public class Stack : MonoBehaviour
     {
         #region PROPERTIES
-
-        [Title("Properties")] 
-        [TabGroup("B", "Stack Data")]
-        public IntRef CollectedAllGemAmount;
         
-        [TabGroup("Gem Item List")][ShowInInspector]
-        public RuntimeSet<GemListItem> TempGemListItems;
-        public GemListItem[] GemList;
+        [TabGroup("Gem Item List")]
+        public RuntimeSet<GemListItem> GemListItemSetRuntime;
 
         [TabGroup("Components")] 
         public Transform stackHolder;
@@ -33,15 +28,24 @@ namespace nyy.FG_Case.PlayerSc
                 
         #region EVENT FUNCTIONS
 
-        private void Awake()
+        private void Start()
         {
+            FindGemListItems();
+        }
+        
+        private void FindGemListItems()
+        {
+            var tempGemListItems = FindObjectsOfType<GemListItem>().ToList();
             
+            foreach (var tempGemListItem in tempGemListItems)
+            {
+                GemListItemSetRuntime.Add(tempGemListItem);
+            }
         }
 
-        [Button]
-        public void Set(RuntimeSet<GemListItem> list)
+        private void OnDisable()
         {
-            GemList = list.ToArray();
+            GemListItemSetRuntime.Clear();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -71,7 +75,7 @@ namespace nyy.FG_Case.PlayerSc
 
         private void FindCorrectGemItemList(IStackable gem)
         {
-            foreach (var gemListItem in GemList)
+            foreach (var gemListItem in GemListItemSetRuntime)
             {
                 if (gemListItem.Type == gem.GetName())
                 {

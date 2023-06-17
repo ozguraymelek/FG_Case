@@ -20,7 +20,7 @@ namespace nyy.FG_Case
 
         [BoxGroup("Gem Data")] 
         public GemObjectData GemData;
-        public RuntimeSet<GemListItem> TempGemListItems;
+        public RuntimeSet<GemListItem> CreatedGemItemListEditor;
 
         private List<Gem> _createdGems = new List<Gem>();
 
@@ -100,7 +100,7 @@ namespace nyy.FG_Case
         }
 
         [Button, GUIColor(.85f,.5f,.7f)]
-        public void DeleteAllGem()
+        public void DeleteAllGemData()
         {
             string[] allGemsPath = { GemPath };
             string[] allGemMaterialsPath = { MaterialPath };
@@ -118,6 +118,7 @@ namespace nyy.FG_Case
             }
             
             GemData.GemDataList.Clear();
+            DeleteGemListItems();
         }
         #endregion  
                 
@@ -157,16 +158,19 @@ namespace nyy.FG_Case
 
         private void SetGemListItems(GemListItem gemListItem)
         {
-            _stack = FindObjectOfType<Stack>();
+            CreatedGemItemListEditor.Add(gemListItem);
+        }
 
-            TempGemListItems.Add(gemListItem);
+        private void DeleteGemListItems()
+        {
+            foreach (var gemListItem in CreatedGemItemListEditor)
+            {
+                DestroyImmediate(gemListItem.gameObject);
+            }
+
+            CreatedGemItemListEditor.Clear();
         }
         
-        [Button]
-        private void SetGemListItemsForRuntime(Stack stack)
-        {
-            stack.GemList = TempGemListItems.ToArray();
-        }
         #endregion
     }
 }

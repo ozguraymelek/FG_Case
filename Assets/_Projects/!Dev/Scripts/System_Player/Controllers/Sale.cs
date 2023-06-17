@@ -20,6 +20,9 @@ namespace nyy.FG_Case.PlayerSc
         [TabGroup("Stack Data")] 
         public RuntimeSet<Gem> CollectedGemSet;
         
+        [TabGroup("Stack Data")]
+        public RuntimeSet<GemListItem> GemListItemSetRuntime;
+        
         [TabGroup("Settings")]
         public bool canSale;
         
@@ -50,6 +53,7 @@ namespace nyy.FG_Case.PlayerSc
                 , saleDoTweenProperties.DoJumpPower, saleDoTweenProperties.DoJumpNums,
                 saleDoTweenProperties.DoJumpDuration);
             
+            FindCorrectGemItemList(currentGem);
             CollectedGemSet.Remove(currentGem);
             
             tween.OnComplete(() =>
@@ -71,6 +75,18 @@ namespace nyy.FG_Case.PlayerSc
             OnCoinMove3Dto2D.Invoke(gem);
         }
 
+        private void FindCorrectGemItemList(IStackable gem)
+        {
+            foreach (var gemListItem in GemListItemSetRuntime)
+            {
+                if (gemListItem.Type == gem.GetName())
+                {
+                    gem.SetGemListRef(gemListItem);
+                    gemListItem.DecreaseCount();
+                }
+            }
+        }
+        
         public static int CalculatePrice(Gem gem)
         {
             var earnedMoney = Mathf.RoundToInt(gem.GemProperties.StartingSalePrice +

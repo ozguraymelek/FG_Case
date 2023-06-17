@@ -63,7 +63,12 @@ namespace nyy.FG_Case.System_Gem
 
         public void IncreaseCount()
         {
-            CollectedCount.Value ++;
+            CollectedCount.Value++;
+        }
+
+        public void DecreaseCount()
+        {
+            CollectedCount.Value--;
         }
         #endregion  
                 

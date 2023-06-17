@@ -121,7 +121,7 @@ namespace nyy.FG_Case.System_Gem
 
         public void Stack(Transform target)
         {
-            collider.enabled = false;
+            // collider.enabled = false;
             
             transform.DOFollow(target,
                 target.localPosition + new Vector3(0f,

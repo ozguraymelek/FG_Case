@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1458994459, guid: c95660654f9bf5947a7bf05339c21ea5, type: 3}
-  m_Name: GemListItems
+  m_Name: CreatedGemListItemEditorSet
   m_EditorClassIdentifier: 
   _description: 
   AddExpanded: 0
