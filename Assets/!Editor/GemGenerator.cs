@@ -163,10 +163,9 @@ namespace nyy.FG_Case
         }
         
         [Button]
-        private void SetGemListItemsForRuntime()
+        private void SetGemListItemsForRuntime(Stack stack)
         {
-            _stack = FindObjectOfType<Stack>();
-            _stack.GemList = TempGemListItems.ToArray();
+            stack.GemList = TempGemListItems.ToArray();
         }
         #endregion
     }
