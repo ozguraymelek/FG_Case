@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using ExtEvents.OdinSerializer;
 using GenericScriptableArchitecture;
 using nyy.FG_Case.ReferenceValue;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 namespace nyy.FG_Case.System_Save
@@ -15,29 +18,38 @@ namespace nyy.FG_Case.System_Save
         [Title("Objects to Save")] public IntRef PlayerCoin;
 
         [Title("Events")] public ScriptableEvent SavePlayerCoin;
-
+        
         #endregion
 
         #region EVENT FUNCTIONS
         
+        
         private void Awake()
         {
-            DontDestroyOnLoad(this);
+            // DontDestroyOnLoad(this);
         }
 
         private void OnEnable()
         {
-            SavePlayerCoin += this;
+            // SavePlayerCoin += this;
         }
 
         private void OnDisable()
         {
-            SavePlayerCoin -= this;
+            // SavePlayerCoin -= this;
         }
 
         private void Start()
         {
-            LoadData();
+            // LoadData();
+        }
+        
+        private void Update()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.U))
+            {
+                SaveData();
+            }
         }
         
         #endregion
@@ -52,7 +64,7 @@ namespace nyy.FG_Case.System_Save
         #endregion
 
         #region PUBLIC FUNCTIONS
-
+        
         #endregion
 
         #region PRIVATE FUNCTIONS
@@ -63,17 +75,12 @@ namespace nyy.FG_Case.System_Save
             {
                 Directory.CreateDirectory(Application.persistentDataPath + "/game_save");
             }
-
             if (!Directory.Exists(Application.persistentDataPath + "/game_save/game_data"))
             {
                 Directory.CreateDirectory(Application.persistentDataPath + "/game_save/game_data");
             }
-
-            Debug.Log("Game Saved");
-
             var json = JsonUtility.ToJson(PlayerCoin);
-
-            File.WriteAllText(Application.persistentDataPath + "/game_save/game_data/player_coin.txt", json);
+            File.WriteAllText(Application.persistentDataPath + "/game_save/game_data/playercoin_save.txt", json);
         }
 
         private void LoadData()
@@ -82,19 +89,22 @@ namespace nyy.FG_Case.System_Save
             {
                 SaveData();
             }
-
-            var bf = new BinaryFormatter();
-
-            if (File.Exists(Application.persistentDataPath + "/game_save/game_data/player_coin.txt"))
+    
+            if (File.Exists(Application.persistentDataPath + "/game_save/game_data/playercoin_save.txt"))
             {
-                var file = File.ReadAllText(Application.persistentDataPath + "/game_save/game_data/player_coin.txt");
+                var file = File.ReadAllText(Application.persistentDataPath + "/game_save/game_data/playercoin_save.txt");
                 JsonUtility.FromJsonOverwrite((string)file, PlayerCoin);
             }
         }
 
         private bool IsSaveFile()
         {
-            return Directory.Exists(Application.persistentDataPath + "player_coin");
+            return Directory.Exists(Application.persistentDataPath + "playercoin_save");
+        }
+
+        private void OnApplicationQuit()
+        {
+            // SaveData();
         }
 
         #endregion

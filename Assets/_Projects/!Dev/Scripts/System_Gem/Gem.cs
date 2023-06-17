@@ -25,7 +25,7 @@ namespace nyy.FG_Case.System_Gem
         [TabGroup("X", "Data")] public GemProperties GemProperties;
 
         [TabGroup("A", "Components")] [SerializeField]
-        public BoxCollider collider;
+        public BoxCollider boxCollider;
 
         [Title("Properties")] [TabGroup("B", "Stack Settings")]
         public IntRef CollectedAllGemAmount;
@@ -55,16 +55,10 @@ namespace nyy.FG_Case.System_Gem
 
             GemSituationalActions();
         }
-
-
+        
         #endregion
 
         #region IMPLEMENTED FUNCTIONS
-
-        // public void Stack(Transform target)
-        // {
-        //     
-        // }
 
         public void SetGrowable(bool state)
         {
@@ -103,7 +97,7 @@ namespace nyy.FG_Case.System_Gem
         #endregion
 
         #region PRIVATE FUNCTIONS
-
+        
         // private List<UniTask> Move(Transform target, CancellationToken ct)
         // {
         //     var taskList = new List<UniTask>();
@@ -121,7 +115,7 @@ namespace nyy.FG_Case.System_Gem
 
         public void Stack(Transform target)
         {
-            // collider.enabled = false;
+            // boxCollider.enabled = false;
             
             transform.DOFollow(target,
                 target.localPosition + new Vector3(0f,

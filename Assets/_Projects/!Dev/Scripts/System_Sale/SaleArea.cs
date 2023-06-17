@@ -14,7 +14,7 @@ namespace nyy.FG_Case.System_Sale
         #region PROPERTIES
 
         [TabGroup("B", "Global")] 
-        public FloatRef SalesDelayTime;
+        public float SalesDelayTime;
         
         [TabGroup("Stack Data")] 
         public RuntimeSet<Gem> CollectedGemSet;
@@ -34,8 +34,6 @@ namespace nyy.FG_Case.System_Sale
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Sale player) == false) return;
-
-            player.canSale = true;
         }
 
         private void OnTriggerStay(Collider other)
@@ -45,7 +43,7 @@ namespace nyy.FG_Case.System_Sale
 
             _stayedTime += Time.deltaTime;
 
-            if (_stayedTime < SalesDelayTime.Value)
+            if (_stayedTime < SalesDelayTime)
                 return;
 
             player.SaleGem(transform);
@@ -57,7 +55,6 @@ namespace nyy.FG_Case.System_Sale
         {
             if (other.TryGetComponent(out Sale player) == false) return;
 
-            player.canSale = false;
             _stayedTime = 0;
         }
 

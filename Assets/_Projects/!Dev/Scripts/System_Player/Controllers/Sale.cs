@@ -24,13 +24,12 @@ namespace nyy.FG_Case.PlayerSc
         [TabGroup("Stack Data")]
         public RuntimeSet<GemListItem> GemListItemSetRuntime;
         
-        [TabGroup("Settings")]
-        public bool canSale;
-        
         [Title("Events")] 
         public ScriptableEvent<Gem,Transform> SaleAnimationEvent;
         public ScriptableEvent<Gem> OnCoinMove3Dto2D;
         public ScriptableEvent<Gem> OnGemSold;
+        
+        [Title("Save Events")] public ScriptableEvent SavePlayerCoin;
         
         [TabGroup("C","DoTween Settings")]
         [SerializeField] private SaleDoTweenProperties saleDoTweenProperties;
@@ -40,7 +39,6 @@ namespace nyy.FG_Case.PlayerSc
 
         private void OnDisable()
         {
-            CollectedAllGemAmount.Value = 0;
             SoldGemSet.Clear();
         }
 
@@ -70,7 +68,7 @@ namespace nyy.FG_Case.PlayerSc
                 Price(currentGem, targetPos);
                 SoldGemSet.Add(currentGem);
 
-                DOVirtual.DelayedCall(1f, () => DestroySoldGem(currentGem));
+                DestroySoldGem(currentGem);
             });
         }
         #endregion
@@ -80,6 +78,7 @@ namespace nyy.FG_Case.PlayerSc
         private void Price(Gem gem, Transform transform)
         {
             PlayerCoin.Value += CalculatePrice(gem);
+            // SavePlayerCoin.Invoke();
             
             SaleAnimationEvent.Invoke(gem, transform);
             

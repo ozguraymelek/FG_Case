@@ -68,7 +68,7 @@ MonoBehaviour:
   plantDelay: 0
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!54 &-5173902002535200379
 Rigidbody:
   m_ObjectHideFlags: 0

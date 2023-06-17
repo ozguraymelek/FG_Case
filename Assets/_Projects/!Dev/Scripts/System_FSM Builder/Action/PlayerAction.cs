@@ -8,8 +8,8 @@ namespace nyy.FG_Case.FSMBuilder
     {
         #region PUBLIC FUNCTIONS
         
-        public abstract void Onset(Player ctx);
-        public abstract void Updating(Player ctx);
+        public virtual void Onset(Player ctx){}
+        public virtual void Updating(Player ctx){}
         
         #endregion 
     }

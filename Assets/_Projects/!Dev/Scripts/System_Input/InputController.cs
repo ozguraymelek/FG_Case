@@ -1,3 +1,4 @@
+using System;
 using GenericScriptableArchitecture;
 using nyy.FG_Case.ReferenceValue;
 using Sirenix.OdinInspector;
@@ -40,7 +41,7 @@ namespace nyy.FG_Case.Input
             OnJoystickTriggered -= this;
             Magnitude -= CalculateMovementVectorMagnitude;
         }
-        
+
         #endregion
                 
         #region IMPLEMENTED FUNCTIONS

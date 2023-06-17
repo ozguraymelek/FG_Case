@@ -12,7 +12,7 @@ namespace nyy.FG_Case.System_Gem
         
         [TabGroup("B","Tweens")]
         [Title("Grow Up Tween")] 
-        private Tween _growUpTween;
+        private Tween _tween;
         
         [TabGroup("C","Growing DoT Settings")]
         [SerializeField] private GrowingSettings growingSettings;
@@ -36,9 +36,11 @@ namespace nyy.FG_Case.System_Gem
         
         public void StopGrowing()
         {
-            var uid = Guid.NewGuid();
-            _growUpTween.id = uid;
+            print("Growing Stopped");
 
+            var uid = Guid.NewGuid();
+            
+            _tween.id = uid;
             DOTween.Kill(uid);
         }
         
@@ -49,7 +51,7 @@ namespace nyy.FG_Case.System_Gem
                 {
                     gem.canStackable = transform.localScale.x >= .25f;
                     gem.isGrew = transform.localScale.x >= 1f;
-                    gem.canGrow = transform.localScale.x < 1f;
+                    gem.canGrow = transform.localScale.x < 1f && gem.isStacked == false;
                 });
         }
         
@@ -59,7 +61,7 @@ namespace nyy.FG_Case.System_Gem
 
         private void StartGrowing()
         {
-            _growUpTween = transform.DOScale(growingSettings.GrowUpMaxValue, growingSettings.GrowUpDuration);
+            _tween = transform.DOScale(growingSettings.GrowUpMaxValue, growingSettings.GrowUpDuration);
         }
         
         #endregion

@@ -23,7 +23,7 @@ namespace nyy.FG_Case.PlayerSc
         
 
         [TabGroup("A","Interact")]  public Rigidbody rb;
-        [TabGroup("A","Interact")] public CapsuleCollider collider;
+        [TabGroup("A","Interact")] public CapsuleCollider capsuleCollider;
         [TabGroup("A","Art")] public Animator animator;
         [TabGroup("A","Art")] public CinemachineVirtualCamera virtualCamera;
         

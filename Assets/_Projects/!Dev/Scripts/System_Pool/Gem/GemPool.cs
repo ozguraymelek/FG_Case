@@ -91,7 +91,7 @@ namespace nyy.FG_Case.System_Pool
             obj.transform.localScale = Vector3.zero;
             obj.transform.localPosition = Vector3.zero;
 
-            obj.collider.enabled = true;
+            // obj.boxCollider.enabled = true;
         }
         
         private void ReleaseGemProcess(Gem gem)

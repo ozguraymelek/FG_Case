@@ -16,6 +16,9 @@ namespace nyy.FG_Case.ReferenceValue
         [SerializeField, ShowIf("@Reference is BoolRef"), LabelText("Value"), Indent]
         private bool BoolValue;
         
+        [SerializeField, ShowIf("@Reference is IntRef"), LabelText("Value"), Indent]
+        private int IntValue;
+        
         #endregion
                 
         #region EVENT FUNCTIONS
@@ -59,6 +62,9 @@ namespace nyy.FG_Case.ReferenceValue
                     break;
                 case BoolRef boolRef:
                     boolRef.Value = BoolValue;
+                    break;
+                case IntRef intRef:
+                    intRef.Value = IntValue;
                     break;
             }
         }

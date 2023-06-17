@@ -10,23 +10,23 @@ namespace nyy.FG_Case.FSMImplement
     public class PlayerIdleAction : PlayerAction
     {
         #region PROPERTIES
-        private static readonly int IDWalk = Animator.StringToHash("IsWalking");
-        private static readonly int IDRun = Animator.StringToHash("IsRunning");
+        private static readonly int ID = Animator.StringToHash("Speed");
+        
+        [BoxGroup("Variables")] public FloatRef VerticalInput;
+        [BoxGroup("Variables")] public FloatRef HorizontalInput;
+        
         #endregion
                 
         #region IMPLEMENTED FUNCTIONS
         
         public override void Onset(Player ctx)
         {
-            ctx.animator.SetBool(IDWalk, false); 
-            ctx.animator.SetBool(IDRun, false); 
-            
             Idle(ctx);
         }
 
         public override void Updating(Player ctx)
         {
-            
+            SetAnimation(ctx);
         }        
          
         #endregion  
@@ -35,7 +35,15 @@ namespace nyy.FG_Case.FSMImplement
         private void Idle(Player ctx)
         {
             ctx.rb.velocity = Vector3.zero;
-            // Physics.defaultMaxDepenetrationVelocity = 10f;
+        }
+        
+        private void SetAnimation(Player ctx)
+        {
+            if (Mathf.Abs(VerticalInput.Value) >= Mathf.Abs(HorizontalInput.Value))
+                ctx.animator.SetFloat(ID, Mathf.Abs(VerticalInput.Value));
+
+            if (Mathf.Abs(HorizontalInput.Value) > Mathf.Abs(VerticalInput.Value))
+                ctx.animator.SetFloat(ID, Mathf.Abs(HorizontalInput.Value));
         }
         
         #endregion

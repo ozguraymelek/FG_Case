@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using GenericScriptableArchitecture;
 using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Gem;
@@ -19,8 +20,11 @@ namespace nyy.FG_Case.PlayerSc
         #region PROPERTIES
         
         [TabGroup("Gem Item List")]
+        
         public RuntimeSet<GemListItem> GemListItemSetRuntime;
-
+        [TabGroup("Stack Data")] 
+        public RuntimeSet<Gem> CollectedGemSet;
+        
         [TabGroup("Components")] 
         public Transform stackHolder;
 
@@ -55,7 +59,7 @@ namespace nyy.FG_Case.PlayerSc
             if (gem.CanStackable() == false) return;
             
             gem.Stack(stackHolder);
-            
+            // StartCoroutine(OscillateRoutine());
             FindCorrectGemItemList(gem);
             
             gem.SetGrowable(false);
@@ -82,6 +86,16 @@ namespace nyy.FG_Case.PlayerSc
                     gem.SetGemListRef(gemListItem);
                     gemListItem.IncreaseCount();
                 }
+            }
+        }
+        
+        private IEnumerator OscillateRoutine()
+        {
+            for (int i = 0; i < CollectedGemSet.Count; i++)
+            {
+                var tween = CollectedGemSet[i].transform.DOPunchScale(new Vector3(.75f, 0, .75f), .4f);
+                
+                yield return new WaitForSeconds(.05f);
             }
         }
         

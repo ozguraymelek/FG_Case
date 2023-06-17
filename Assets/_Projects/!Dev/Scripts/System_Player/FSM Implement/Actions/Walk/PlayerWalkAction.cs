@@ -11,8 +11,7 @@ namespace nyy.FG_Case.FSMImplement
     {
         #region PROPERTIES
         
-        private static readonly int IDWalk = Animator.StringToHash("IsWalking");
-        private static readonly int IDRun = Animator.StringToHash("IsRunning");
+        private static readonly int ID = Animator.StringToHash("Speed");
         
         [BoxGroup("Variables")] public FloatRef VerticalInput;
         [BoxGroup("Variables")] public FloatRef HorizontalInput;
@@ -20,19 +19,13 @@ namespace nyy.FG_Case.FSMImplement
         #endregion
                 
         #region IMPLEMENTED FUNCTIONS
-        
-        public override void Onset(Player ctx)
-        {
-            ctx.animator.SetBool(IDWalk, true);
-            ctx.animator.SetBool(IDRun, false);
-            
-            // Physics.defaultMaxDepenetrationVelocity = ctx.walkSpeed / Mathf.Abs(Physics.gravity.y);
-        }
 
         public override void Updating(Player ctx)
         {
             Walk(ctx);
             Rotate(ctx);
+
+            SetAnimation(ctx);
         }        
          
         #endregion  
@@ -48,11 +41,21 @@ namespace nyy.FG_Case.FSMImplement
         
         private void Rotate(Player ctx)
         {
+            if (HorizontalInput.Value == 0 && VerticalInput.Value == 0) return;
             var direction = (Vector3.forward * VerticalInput.Value + Vector3.right * HorizontalInput.Value).normalized;
                     
             var rotGoal = Quaternion.LookRotation(direction);
                     
             ctx.transform.rotation = Quaternion.Slerp(ctx.transform.rotation, rotGoal, ctx.rotationSpeed * Time.deltaTime);
+        }
+        
+        private void SetAnimation(Player ctx)
+        {
+            if (Mathf.Abs(VerticalInput.Value) > Mathf.Abs(HorizontalInput.Value))
+                ctx.animator.SetFloat(ID, Mathf.Abs(VerticalInput.Value));
+
+            if (Mathf.Abs(HorizontalInput.Value) > Mathf.Abs(VerticalInput.Value))
+                ctx.animator.SetFloat(ID, Mathf.Abs(HorizontalInput.Value));
         }
         
         #endregion

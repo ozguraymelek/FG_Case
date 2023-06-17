@@ -22,7 +22,7 @@ namespace nyy.FG_Case.Observers
         public Image coinPanel;
         
         [TabGroup("animation","Components")] 
-        public Camera camera;
+        public Camera mainCamera;
         
         [TabGroup("UI Components")] 
         public TMP_Text textPlayerCoin;
@@ -64,6 +64,7 @@ namespace nyy.FG_Case.Observers
         
         public void OnEventInvoked()
         {
+            print("sda");
             textPlayerCoin.text = playerCoin.Value.ToString();
         }
 
@@ -83,7 +84,7 @@ namespace nyy.FG_Case.Observers
         private void CoinMoveAnimation(Gem gem)
         {
             var pos = gem.transform.position;
-            var viewportPoint = camera.WorldToScreenPoint(pos);
+            var viewportPoint = mainCamera.WorldToScreenPoint(pos);
             
             var icon = Instantiate(coinIconPrefab, viewportPoint,
                 Quaternion.identity, coinPanel.transform.parent);

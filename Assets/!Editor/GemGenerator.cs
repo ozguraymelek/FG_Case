@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GenericScriptableArchitecture;
@@ -75,6 +76,7 @@ namespace nyy.FG_Case
         #region PUBLIC FUNCTIONS
 
         [Button, GUIColor(.2f,.7f,.1f)]
+        [Obsolete("Obsolete")]
         public void CreateNewGem()
         {
             var newPrefab = EditorUtility.CreateEmptyPrefab(GemPath + "/" + Name + ".prefab");
@@ -89,7 +91,9 @@ namespace nyy.FG_Case
             newGameObject.GetComponentInChildren<Renderer>().sharedMaterial = newMaterial;
             
             SetGemData(newGameObject.GetComponent<Gem>());
-            SetGemUI(newGameObject.GetComponent<Gem>());
+            SetGemUI();
+            
+            PlayerPrefs.DeleteAll();
             
             AssetDatabase.CreateAsset(newMaterial, $"{MaterialPath}/{Name}.mat");
             AssetDatabase.SaveAssets();
@@ -141,7 +145,7 @@ namespace nyy.FG_Case
             gem.GemProperties.Prefab = gem;
         }
 
-        private void SetGemUI(Gem gem)
+        private void SetGemUI()
         {
             var displayGemRef = FindObjectOfType<DisplayGem>();
             var listItem = GameObject.Instantiate(ReferenceListItemPrefab, displayGemRef.contentTr);
