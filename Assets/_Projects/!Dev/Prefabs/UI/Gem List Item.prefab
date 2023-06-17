@@ -211,11 +211,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 
   StartingSalePrice: 0
-  CollectedCount: 0
+  CollectedCount:
+    value: 0
   Icon: {fileID: 980633113679482096}
   textType: {fileID: 4871723693021964452}
   textStartingSalePrice: {fileID: 4871723692705883648}
   textCollectedCount: {fileID: 4871723693388357143}
+  CheckCollectedCount: {fileID: 11400000, guid: 6b8a26d249bbb5c448f94b1a8c87a5f3, type: 2}
+  SaveCollectedCount: {fileID: 11400000, guid: ce1ee97e3318883469679e33655d55d4, type: 2}
 --- !u!1001 &8845340592864615102
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,6 +36,10 @@ namespace nyy.FG_Case.System_Gem
         
         [TabGroup("C","UI Components")] 
         public TMP_Text textCollectedCount;
+        
+        [Title("Save Events")] 
+        public ScriptableEvent<string, IntReactiveProperty> CheckCollectedCount;
+        public ScriptableEvent<string, IntReactiveProperty> SaveCollectedCount;
 
         #endregion
                 
@@ -44,6 +48,7 @@ namespace nyy.FG_Case.System_Gem
         private void Start()
         {
             CollectedCount.SubscribeToText(textCollectedCount);
+            CheckCollectedCount.Invoke("Collected " + Type, CollectedCount);
         }
 
         #endregion
@@ -64,6 +69,7 @@ namespace nyy.FG_Case.System_Gem
         public void IncreaseCount()
         {
             CollectedCount.Value++;
+            SaveCollectedCount.Invoke("Collected " + Type, CollectedCount);
         }
 
         public void DecreaseCount()

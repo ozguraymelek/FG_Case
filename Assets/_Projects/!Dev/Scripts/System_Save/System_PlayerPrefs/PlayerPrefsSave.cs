@@ -38,6 +38,15 @@ namespace nyy.FG_Case.System_Save
                 
         #region IMPLEMENTED FUNCTIONS
         
+        public void OnEventInvoked(IEvent<string, IntReactiveProperty> invokedEvent, string arg0, IntReactiveProperty arg1)
+        {
+            if (ReferenceEquals(invokedEvent, CheckCollectedCount))
+                PlayerPrefs_Check(arg0, arg1);
+
+            if (ReferenceEquals(invokedEvent, SaveCollectedCount))
+                PlayerPrefs_Save(arg0, arg1);
+        }
+        
         #endregion  
         
         #region PUBLIC FUNCTIONS
@@ -56,19 +65,11 @@ namespace nyy.FG_Case.System_Save
         {
             PlayerPrefs.SetInt(key, value.Value);
         }
+        
         #endregion  
                 
         #region PRIVATE FUNCTIONS
         
         #endregion
-
-        public void OnEventInvoked(IEvent<string, IntReactiveProperty> invokedEvent, string arg0, IntReactiveProperty arg1)
-        {
-            if (ReferenceEquals(invokedEvent, CheckCollectedCount))
-                PlayerPrefs_Check(arg0, arg1);
-
-            if (ReferenceEquals(invokedEvent, SaveCollectedCount))
-                PlayerPrefs_Save(arg0, arg1);
-        }
     }
 }

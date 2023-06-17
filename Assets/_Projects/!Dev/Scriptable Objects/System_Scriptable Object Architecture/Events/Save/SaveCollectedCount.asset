@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: SaveCollectedCount
   m_EditorClassIdentifier: 
   _description: 
-  _argNames: []
+  _argNames:
+  - Arg 1
+  - Arg 2
   _scriptableEventHelper:
     ListenersExpanded: 0
     StackTrace:

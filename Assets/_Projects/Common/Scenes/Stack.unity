@@ -818,6 +818,8 @@ MonoBehaviour:
   textType: {fileID: 788469525}
   textStartingSalePrice: {fileID: 1693167383}
   textCollectedCount: {fileID: 581763530}
+  CheckCollectedCount: {fileID: 11400000, guid: 6b8a26d249bbb5c448f94b1a8c87a5f3, type: 2}
+  SaveCollectedCount: {fileID: 11400000, guid: ce1ee97e3318883469679e33655d55d4, type: 2}
 --- !u!114 &167729399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5107,6 +5109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 745706166}
   - component: {fileID: 745706167}
+  - component: {fileID: 745706168}
   m_Layer: 0
   m_Name: Save
   m_TagString: Untagged
@@ -5143,6 +5146,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CheckCollectedCount: {fileID: 11400000, guid: 6b8a26d249bbb5c448f94b1a8c87a5f3, type: 2}
   SaveCollectedCount: {fileID: 11400000, guid: ce1ee97e3318883469679e33655d55d4, type: 2}
+--- !u!114 &745706168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745706165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b13b3a2bd96f0429c5acab566e12aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCoin: {fileID: 11400000, guid: 3167b29226184c144bd0b3571a46fba9, type: 2}
+  SavePlayerCoin: {fileID: 11400000, guid: a764cb3216c490a418a965c1bf7d0387, type: 2}
 --- !u!1 &752224276
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,6 +5938,8 @@ MonoBehaviour:
   textType: {fileID: 1872421878}
   textStartingSalePrice: {fileID: 564410281}
   textCollectedCount: {fileID: 1247757024}
+  CheckCollectedCount: {fileID: 11400000, guid: 6b8a26d249bbb5c448f94b1a8c87a5f3, type: 2}
+  SaveCollectedCount: {fileID: 11400000, guid: ce1ee97e3318883469679e33655d55d4, type: 2}
 --- !u!114 &904193036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6348,6 +6367,8 @@ MonoBehaviour:
   textType: {fileID: 1934366922}
   textStartingSalePrice: {fileID: 613324935}
   textCollectedCount: {fileID: 1104091520}
+  CheckCollectedCount: {fileID: 11400000, guid: 6b8a26d249bbb5c448f94b1a8c87a5f3, type: 2}
+  SaveCollectedCount: {fileID: 11400000, guid: ce1ee97e3318883469679e33655d55d4, type: 2}
 --- !u!114 &969394279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10446,6 +10467,8 @@ MonoBehaviour:
   textType: {fileID: 949345066}
   textStartingSalePrice: {fileID: 1674061561}
   textCollectedCount: {fileID: 1894396035}
+  CheckCollectedCount: {fileID: 11400000, guid: 6b8a26d249bbb5c448f94b1a8c87a5f3, type: 2}
+  SaveCollectedCount: {fileID: 11400000, guid: ce1ee97e3318883469679e33655d55d4, type: 2}
 --- !u!114 &1686132802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12097,6 +12120,8 @@ MonoBehaviour:
   textType: {fileID: 1179296824}
   textStartingSalePrice: {fileID: 1370019960}
   textCollectedCount: {fileID: 728685422}
+  CheckCollectedCount: {fileID: 11400000, guid: 6b8a26d249bbb5c448f94b1a8c87a5f3, type: 2}
+  SaveCollectedCount: {fileID: 11400000, guid: ce1ee97e3318883469679e33655d55d4, type: 2}
 --- !u!114 &1910212190
 MonoBehaviour:
   m_ObjectHideFlags: 0
