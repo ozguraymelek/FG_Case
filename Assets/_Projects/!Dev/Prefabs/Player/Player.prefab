@@ -1272,7 +1272,7 @@ MonoBehaviour:
   saleDoTweenProperties:
     DoJumpPower: 1.5
     DoJumpNums: 2
-    DoJumpDuration: 0.5
+    DoJumpDuration: 1
 --- !u!1 &5038583736202538139
 GameObject:
   m_ObjectHideFlags: 0

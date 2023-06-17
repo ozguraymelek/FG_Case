@@ -20,7 +20,7 @@ namespace nyy.FG_Case
 
         [BoxGroup("Gem Data")] 
         public GemObjectData GemData;
-        public RuntimeSet<GemListItem> CreatedGemItemListEditor;
+        public List<GemListItem> CreatedGemItemListEditor;
 
         private List<Gem> _createdGems = new List<Gem>();
 

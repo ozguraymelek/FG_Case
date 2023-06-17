@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: Gem Generator
   m_EditorClassIdentifier: 
   GemData: {fileID: 11400000, guid: fdf424997d892ae4a831dcf537c97573, type: 2}
-  CreatedGemItemListEditor: {fileID: 11400000, guid: db470d48f5d0c3f48b8db7e91bb5a86c, type: 2}
+  CreatedGemItemListEditor:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   setReferencePrefab: 0
   ReferencePrefab: {fileID: 6165846538974757285, guid: b62e09ea291c4fa4eba2630d8f8796f7, type: 3}
   ReferenceListItemPrefab: {fileID: 7066523344965541426, guid: 8546c39a8f19e3e4eb276d73bad0239c, type: 3}
-  Name: Yellow
-  StartingSalePrice: 136
-  Icon: {fileID: 21300000, guid: eaede8b24060eb3459cc4f6129993148, type: 3}
+  Name: Turquoise
+  StartingSalePrice: 233
+  Icon: {fileID: 21300000, guid: 0aff41489ca2441879fe4da19a0b8589, type: 3}
   Emission: 0
   ColorHDR: {r: 0, g: 0, b: 0, a: 1}
-  Color: {r: 0.9254902, g: 0.86432046, b: 0.28235295, a: 1}
+  Color: {r: 0.09803921, g: 0.9301986, b: 1, a: 1}
   hidePaths: 1
   MaterialPath: Assets/_Projects/Art/Materials/Gem
   GemPath: Assets/_Projects/!Dev/Prefabs/Gems

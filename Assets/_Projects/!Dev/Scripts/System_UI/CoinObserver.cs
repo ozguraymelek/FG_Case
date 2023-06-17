@@ -82,7 +82,6 @@ namespace nyy.FG_Case.Observers
 
         private void CoinMoveAnimation(Gem gem)
         {
-            print("spawn");
             var pos = gem.transform.position;
             var viewportPoint = camera.WorldToScreenPoint(pos);
             
@@ -92,6 +91,7 @@ namespace nyy.FG_Case.Observers
             var tweenCoin = icon.transform.DOMove(coinPanel.transform.position, coinMoveDoTweenSettings.MoneyMoveDuration);
             tweenCoin.OnComplete(() => Destroy(icon.gameObject));
         }
+        
         #endregion
     }
     

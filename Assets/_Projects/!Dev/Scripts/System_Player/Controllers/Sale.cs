@@ -19,6 +19,7 @@ namespace nyy.FG_Case.PlayerSc
         
         [TabGroup("Stack Data")] 
         public RuntimeSet<Gem> CollectedGemSet;
+        public RuntimeSet<Gem> SoldGemSet;
         
         [TabGroup("Stack Data")]
         public RuntimeSet<GemListItem> GemListItemSetRuntime;
@@ -29,12 +30,19 @@ namespace nyy.FG_Case.PlayerSc
         [Title("Events")] 
         public ScriptableEvent<Gem,Transform> SaleAnimationEvent;
         public ScriptableEvent<Gem> OnCoinMove3Dto2D;
+        public ScriptableEvent<Gem> OnGemSold;
         
         [TabGroup("C","DoTween Settings")]
         [SerializeField] private SaleDoTweenProperties saleDoTweenProperties;
         #endregion
 
         #region EVENT FUNCTIONS
+
+        private void OnDisable()
+        {
+            CollectedAllGemAmount.Value = 0;
+            SoldGemSet.Clear();
+        }
 
         #endregion
 
@@ -53,13 +61,16 @@ namespace nyy.FG_Case.PlayerSc
                 , saleDoTweenProperties.DoJumpPower, saleDoTweenProperties.DoJumpNums,
                 saleDoTweenProperties.DoJumpDuration);
             
-            FindCorrectGemItemList(currentGem);
+            // FindCorrectGemItemList(currentGem);
             CollectedGemSet.Remove(currentGem);
             
             tween.OnComplete(() =>
             {
                 CollectedAllGemAmount.Value -= 1;
                 Price(currentGem, targetPos);
+                SoldGemSet.Add(currentGem);
+
+                DOVirtual.DelayedCall(1f, () => DestroySoldGem(currentGem));
             });
         }
         #endregion
@@ -85,6 +96,11 @@ namespace nyy.FG_Case.PlayerSc
                     gemListItem.DecreaseCount();
                 }
             }
+        }
+
+        private void DestroySoldGem(Gem gem)
+        {
+            OnGemSold.Invoke(gem);
         }
         
         public static int CalculatePrice(Gem gem)

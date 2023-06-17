@@ -21,7 +21,7 @@ namespace nyy.FG_Case.System_Gem
                 
         #region EVENT FUNCTIONS
 
-        private void Start()
+        private void OnEnable()
         {
             StartGrowing();
         }

@@ -72,7 +72,7 @@ namespace nyy.FG_Case.System_Sale
             
             tweenPopUpRotate.OnComplete(() => Destroy(popUpText.gameObject));
         }
-        
+
         #endregion
     }
     

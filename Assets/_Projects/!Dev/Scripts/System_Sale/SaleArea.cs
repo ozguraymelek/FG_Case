@@ -72,7 +72,7 @@ namespace nyy.FG_Case.System_Sale
         #endregion  
                 
         #region PRIVATE FUNCTIONS
-        
+
         
         #endregion
     }
