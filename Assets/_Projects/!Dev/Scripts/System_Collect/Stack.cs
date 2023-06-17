@@ -22,12 +22,9 @@ namespace nyy.FG_Case.PlayerSc
         [TabGroup("B", "Stack Data")]
         public IntRef CollectedAllGemAmount;
         
-        [TabGroup("References")] 
-        public GemGenerator GemGenerator;
-        
         [TabGroup("Gem Item List")][ShowInInspector]
         public RuntimeSet<GemListItem> TempGemListItems;
-        public List<GemListItem> GemList;
+        public GemListItem[] GemList;
 
         [TabGroup("Components")] 
         public Transform stackHolder;
@@ -36,10 +33,15 @@ namespace nyy.FG_Case.PlayerSc
                 
         #region EVENT FUNCTIONS
 
-        [Button]
-        private void Set()
+        private void Awake()
         {
-            GemList = TempGemListItems.ToList();
+            
+        }
+
+        [Button]
+        public void Set(RuntimeSet<GemListItem> list)
+        {
+            GemList = list.ToArray();
         }
 
         private void OnTriggerEnter(Collider other)

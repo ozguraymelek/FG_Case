@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 
 using System.Collections.Generic;
+using System.Linq;
 using GenericScriptableArchitecture;
 using nyy.FG_Case.PlayerSc;
 using nyy.FG_Case.System_Data;
@@ -20,7 +21,7 @@ namespace nyy.FG_Case
         [BoxGroup("Gem Data")] 
         public GemObjectData GemData;
         public RuntimeSet<GemListItem> TempGemListItems;
-        
+
         private List<Gem> _createdGems = new List<Gem>();
 
         [Title("Properties")] [TabGroup("Reference")] 
@@ -159,6 +160,13 @@ namespace nyy.FG_Case
             _stack = FindObjectOfType<Stack>();
 
             TempGemListItems.Add(gemListItem);
+        }
+        
+        [Button]
+        private void SetGemListItemsForRuntime()
+        {
+            _stack = FindObjectOfType<Stack>();
+            _stack.GemList = TempGemListItems.ToArray();
         }
         #endregion
     }
