@@ -21,11 +21,8 @@ namespace nyy.FG_Case.PlayerSc
         [InfoBox("Will set via script")][DisableIn(PrefabKind.All)]
         public PlayerBaseState CurrentState;
         
-
         [TabGroup("A","Interact")]  public Rigidbody rb;
-        [TabGroup("A","Interact")] public CapsuleCollider capsuleCollider;
         [TabGroup("A","Art")] public Animator animator;
-        [TabGroup("A","Art")] public CinemachineVirtualCamera virtualCamera;
         
         [TabGroup("B","Settings")] public Vector3Ref MovementVector;
         [TabGroup("B","Settings")] public float walkSpeed;

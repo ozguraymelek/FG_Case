@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GemData: {fileID: 11400000, guid: fdf424997d892ae4a831dcf537c97573, type: 2}
   Growing: {fileID: 4032367797213084052}
+  PlayerData: {fileID: 11400000, guid: 43d5b0c69858b68448e1e8bc164c0a96, type: 2}
   GemProperties:
     Name: Green
     StartingSalePrice: 27
@@ -154,6 +155,10 @@ MonoBehaviour:
   material: {fileID: 0}
   grewEffectPrefab: {fileID: 6804003120978211834, guid: 26320fe0c07616742b66077537c49843, type: 3}
   grewEffect: {fileID: 0}
+  collectSoundPrefab: {fileID: 2102881306609923207, guid: c3e49b63674039b4b82ac2aa9d39ebff, type: 3}
+  collectSound: {fileID: 0}
+  saleSoundPrefab: {fileID: 8991736136274620572, guid: ef7e28aeb0df9ab469640dd5deb64509, type: 3}
+  saleSound: {fileID: 0}
   CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
   isStacked: 0
   canGrow: 0

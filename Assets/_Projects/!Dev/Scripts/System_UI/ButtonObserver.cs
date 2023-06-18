@@ -1,15 +1,30 @@
 using System;
+using GenericScriptableArchitecture;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace nyy.FG_Case.System_UI
 {
     public class ButtonObserver : MonoBehaviour
     {
         #region PROPERTIES
+        
+        [Title("Data")] 
+        public PlayerData PlayerData;
+        
+        [Title("Text UI Components")] 
+        public TMP_Text textStatus;
 
-        [Title("Components")] public TMP_Text textStatus;
+        [Title("Sound UI Components")] 
+        public Image soundButtonImage;
+        
+        [Title("Sound Sprite Components")] 
+        public Sprite soundOnSprite;
+        public Sprite soundOffSprite;
+        
+        [Title("Events")] public ScriptableEvent SavePlayerData;
         
         #endregion
                 
@@ -18,6 +33,11 @@ namespace nyy.FG_Case.System_UI
         private void Start()
         {
             Time.timeScale = 0;
+
+            if (PlayerData.soundEffects)
+                soundButtonImage.sprite = soundOnSprite;
+            else
+                soundButtonImage.sprite = soundOffSprite;
         }
 
         #endregion
@@ -46,6 +66,23 @@ namespace nyy.FG_Case.System_UI
                 textStatus.gameObject.SetActive(false);
                 Time.timeScale = 1;
             }
+        }
+
+        public void Button_Sound()
+        {
+            if (PlayerData.soundEffects)
+            {
+                PlayerData.soundEffects = !PlayerData.soundEffects;
+                soundButtonImage.sprite = soundOffSprite;
+            }
+            
+            else
+            {
+                PlayerData.soundEffects = !PlayerData.soundEffects;
+                soundButtonImage.sprite = soundOnSprite;
+            }
+            
+            SavePlayerData.Invoke();
         }
         
         #endregion  

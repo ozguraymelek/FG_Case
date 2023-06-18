@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using GenericScriptableArchitecture;
+using Lean.Pool;
 using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
@@ -94,6 +95,12 @@ namespace nyy.FG_Case.Observers
             tweenCoin.OnComplete(() =>
             {
                 Destroy(icon.gameObject);
+
+                if (PlayerData.soundEffects)
+                {
+                    gem.saleSound = LeanPool.Spawn(gem.saleSoundPrefab, transform);
+                    DOVirtual.DelayedCall(1f, () => { LeanPool.Despawn(gem.saleSound); });
+                }
                 
                 PriceEvent.Invoke(gem);
             });

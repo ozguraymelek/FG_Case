@@ -13,6 +13,9 @@ namespace nyy.FG_Case
         [Title("Settings")]
         public int PlayerCoin;
 
+        [Title("Game Settings")] 
+        public bool soundEffects = true;
+
         #endregion
 
         #region PUBLIC FUNCTIONS

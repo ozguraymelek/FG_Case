@@ -1226,9 +1226,7 @@ MonoBehaviour:
   initState: {fileID: 11400000, guid: a1a06714856861646b382fbe5062a589, type: 2}
   CurrentState: {fileID: 0}
   rb: {fileID: 5029447829516728270}
-  capsuleCollider: {fileID: 5029447829516728257}
   animator: {fileID: 1347786312287730859}
-  virtualCamera: {fileID: 0}
   MovementVector: {fileID: 11400000, guid: a761fe8e30a598a498f0e8bd12373d0c, type: 2}
   walkSpeed: 300
   runSpeed: 300
@@ -1249,6 +1247,9 @@ MonoBehaviour:
   GemListItemSetRuntime: {fileID: 11400000, guid: d530ffe19128d0c46ace3ccfb23b0599, type: 2}
   CollectedGemSet: {fileID: 11400000, guid: c06c77e69ca2d954d8f99e4bc3f4f9d1, type: 2}
   stackHolder: {fileID: 6055417078847504091}
+  oscillateDoTweenProperties:
+    punch: {x: 0.21, y: 0.21, z: 0.21}
+    duration: 0.4
 --- !u!114 &1244743272
 MonoBehaviour:
   m_ObjectHideFlags: 0

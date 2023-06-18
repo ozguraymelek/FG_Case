@@ -36,7 +36,7 @@ namespace nyy.FG_Case.PlayerSc
         public ScriptableEvent OnPlayerCoinChanged;
         
         [Title("Save Events")] 
-        public ScriptableEvent SavePlayerCoin;
+        public ScriptableEvent SavePlayerData;
         
         [TabGroup("C","DoTween Settings")]
         [SerializeField] private SaleDoTweenProperties saleDoTweenProperties;
@@ -72,6 +72,7 @@ namespace nyy.FG_Case.PlayerSc
         {
             var currentGem = CollectedGemSet[^1];
             currentGem.transform.parent = null;
+            currentGem.boxCollider.enabled = true;
 
             var tween = currentGem.transform.DOJump(targetPos.position + RandomPos(targetPos)
                 , saleDoTweenProperties.DoJumpPower, saleDoTweenProperties.DoJumpNums,
@@ -99,7 +100,7 @@ namespace nyy.FG_Case.PlayerSc
         {
             playerData.PlayerCoin += CalculatePrice(gem);
             OnPlayerCoinChanged.Invoke();
-            SavePlayerCoin.Invoke();
+            SavePlayerData.Invoke();
         }
         
         private void DestroySoldGem(Gem gem)

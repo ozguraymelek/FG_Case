@@ -21,6 +21,9 @@ namespace nyy.FG_Case.System_Grid
         [SerializeField] private Gem currentPlantedGem;
         public bool planted;
 
+        [Header("Results")] 
+        private readonly Collider[] results = new Collider[2];
+
         public LayerMask mask;
         
         #endregion
@@ -38,7 +41,7 @@ namespace nyy.FG_Case.System_Grid
             });
         }
         
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color=Color.red;
             
@@ -56,21 +59,10 @@ namespace nyy.FG_Case.System_Grid
         private void FixedUpdate()
         {
             if (currentPlantedGem == null) return;
-            if (currentPlantedGem.isStacked == false) return;
             
-            // if (Physics.SphereCast(transform.position, 1f, transform.forward, out var hit,500f,mask))
-            // {
-            //     if (hit.collider.TryGetComponent(out Player player) == true)
-            //     {
-            //         print("xx");
-            //         planted = false;
-            //     }
-            // }
-
-            var colliders = Physics.OverlapBox(transform.position, transform.localScale*2,Quaternion.identity, mask);
-            print(colliders.Length);
+            var size = Physics.OverlapBoxNonAlloc(transform.position, transform.localScale*2, results, Quaternion.identity, mask);
             
-            if (colliders.Length != 0)
+            if (size != 0)
                 planted = false;
         }
 
@@ -82,7 +74,7 @@ namespace nyy.FG_Case.System_Grid
         private IEnumerator Plant()
         {
             yield return new WaitForSeconds(1f);
-            print("planted");
+            
             currentPlantedGem = null;
             
             var rand = Random.Range(0, GemData.GemDataList.Count);
@@ -99,6 +91,8 @@ namespace nyy.FG_Case.System_Grid
                     
             currentPlantedGem.canGrow = true;
             currentPlantedGem.isGrew = false;
+            
+            currentPlantedGem.boxCollider.enabled = true;
             
             planted = true;
         }

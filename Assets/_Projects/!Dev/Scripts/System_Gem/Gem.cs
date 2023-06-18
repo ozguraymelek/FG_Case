@@ -22,16 +22,26 @@ namespace nyy.FG_Case.System_Gem
 
         [BoxGroup] public GemObjectData GemData;
         [BoxGroup] public Growing Growing;
-
-        [TabGroup("X", "Data")] public GemProperties GemProperties;
-
+        
+        [TabGroup("X", "Data")] 
+        public PlayerData PlayerData;
+        [TabGroup("X", "Data")] 
+        public GemProperties GemProperties;
+        
+        
         [TabGroup("A", "Components")] [SerializeField]
         public BoxCollider boxCollider;
         public Material material;
 
-        [Title("Effect Components")] 
+        [Title("Particle Effect Components")] 
         public GameObject grewEffectPrefab;
         public GameObject grewEffect;
+        
+        [Title("Sound Effect Components")] 
+        public GameObject collectSoundPrefab;
+        public GameObject collectSound;
+        public GameObject saleSoundPrefab;
+        public GameObject saleSound;
         
         [Title("Properties")] [TabGroup("B", "Stack Settings")]
         public IntRef CollectedAllGemAmount;
@@ -106,7 +116,13 @@ namespace nyy.FG_Case.System_Gem
 
         public void Stack(Transform target)
         {
-            // boxCollider.enabled = false;
+            boxCollider.enabled = false;
+
+            if (PlayerData.soundEffects)
+            {
+                collectSound = LeanPool.Spawn(collectSoundPrefab, transform);
+                DOVirtual.DelayedCall(1f, () => { LeanPool.Despawn(collectSound); });
+            }
             
             transform.DOFollow(target,
                 target.localPosition + new Vector3(0f,

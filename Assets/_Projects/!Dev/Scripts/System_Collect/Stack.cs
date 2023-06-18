@@ -25,9 +25,12 @@ namespace nyy.FG_Case.PlayerSc
         [TabGroup("Stack Data")] 
         public RuntimeSet<Gem> CollectedGemSet;
         
-        [TabGroup("Components")] 
+        [TabGroup("A","Components")] 
         public Transform stackHolder;
 
+        [TabGroup("B","DoTween Settings")]
+        [SerializeField] private OscillateDoTweenProperties oscillateDoTweenProperties;
+        
         #endregion
                 
         #region EVENT FUNCTIONS
@@ -95,12 +98,23 @@ namespace nyy.FG_Case.PlayerSc
             for (int i = 0; i < CollectedGemSet.Count; i++)
             {
                 CollectedGemSet[i].transform.DORewind();
-                var tween = CollectedGemSet[i].transform.DOPunchScale(new Vector3(.2f, 0, .2f), .4f);
+                var tween = CollectedGemSet[i].transform.DOPunchScale(oscillateDoTweenProperties.punch,
+                    oscillateDoTweenProperties.duration);
                 
                 yield return new WaitForSeconds(.05f);
             }
         }
         
         #endregion
+    }
+
+    [Serializable]
+    public struct OscillateDoTweenProperties
+    {
+        [Title("Properties")] 
+        [TabGroup("B","DOPunch")]
+        public Vector3 punch;
+        [TabGroup("B","DOPunch")]
+        public float duration;
     }
 }

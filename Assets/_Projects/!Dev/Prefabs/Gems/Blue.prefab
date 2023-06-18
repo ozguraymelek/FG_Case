@@ -150,10 +150,15 @@ MonoBehaviour:
     StartingSalePrice: 38
     Icon: {fileID: 21300000, guid: cb834c0309fc54c7f88b7aa05f1f899e, type: 3}
     Prefab: {fileID: -290860433760391383}
+  PlayerData: {fileID: 11400000, guid: 43d5b0c69858b68448e1e8bc164c0a96, type: 2}
   boxCollider: {fileID: 6165846538974757288, guid: ad8b4a69b11e1dc40b7885cdbfe4ebc0, type: 3}
   material: {fileID: 0}
   grewEffectPrefab: {fileID: 6804003120978211834, guid: 26320fe0c07616742b66077537c49843, type: 3}
   grewEffect: {fileID: 0}
+  collectSoundPrefab: {fileID: 2102881306609923207, guid: c3e49b63674039b4b82ac2aa9d39ebff, type: 3}
+  collectSound: {fileID: 0}
+  saleSoundPrefab: {fileID: 8991736136274620572, guid: ef7e28aeb0df9ab469640dd5deb64509, type: 3}
+  saleSound: {fileID: 0}
   CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
   isStacked: 0
   canGrow: 0
