@@ -1,6 +1,7 @@
 using System.Collections;
 using GenericScriptableArchitecture;
 using Lean.Pool;
+using nyy.FG_Case.PlayerSc;
 using nyy.FG_Case.System_Data;
 using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
@@ -37,6 +38,13 @@ namespace nyy.FG_Case.System_Grid
             });
         }
         
+        private void OnDrawGizmos()
+        {
+            Gizmos.color=Color.red;
+            
+            Gizmos.DrawWireCube(transform.position,transform.localScale*2);
+        }
+        
         #endregion
 
         #region IMPLEMENTED FUNCTIONS
@@ -50,27 +58,36 @@ namespace nyy.FG_Case.System_Grid
             if (currentPlantedGem == null) return;
             if (currentPlantedGem.isStacked == false) return;
             
-            if (Physics.Raycast(transform.position, transform.up, Vector3.one.y,mask) == false)
-            {
-                if(currentPlantedGem.isStacked)
-                    planted = false;
-            }
+            // if (Physics.SphereCast(transform.position, 1f, transform.forward, out var hit,500f,mask))
+            // {
+            //     if (hit.collider.TryGetComponent(out Player player) == true)
+            //     {
+            //         print("xx");
+            //         planted = false;
+            //     }
+            // }
+
+            var colliders = Physics.OverlapBox(transform.position, transform.localScale*2,Quaternion.identity, mask);
+            print(colliders.Length);
+            
+            if (colliders.Length != 0)
+                planted = false;
         }
 
         #endregion
 
         #region PRIVATE FUNCTIONS
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator Plant()
         {
             yield return new WaitForSeconds(1f);
-            
+            print("planted");
             currentPlantedGem = null;
             
             var rand = Random.Range(0, GemData.GemDataList.Count);
             
-            // var gemClone = LeanPool.Spawn(GemData.GemDataList[rand].Prefab, transform);
-            var gemClone = Instantiate(GemData.GemDataList[rand].Prefab, transform);
+            var gemClone = LeanPool.Spawn(GemData.GemDataList[rand].Prefab, transform);
             
             currentPlantedGem = gemClone;
             
@@ -87,10 +104,5 @@ namespace nyy.FG_Case.System_Grid
         }
         
         #endregion
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawRay(transform.position,transform.up);
-        }
     }
 }

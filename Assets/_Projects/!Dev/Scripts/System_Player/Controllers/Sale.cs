@@ -104,6 +104,15 @@ namespace nyy.FG_Case.PlayerSc
         
         private void DestroySoldGem(Gem gem)
         {
+            gem.gameObject.SetActive(false);
+            
+            gem.transform.localScale = Vector3.zero;
+            
+            gem.isStacked = false;
+            gem.isGrew = false;
+            gem.canStackable = false;
+            gem.canGrow = false;
+            
             LeanPool.Despawn(gem);
         }
         
