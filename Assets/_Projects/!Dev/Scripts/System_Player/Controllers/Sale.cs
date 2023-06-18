@@ -11,12 +11,13 @@ using UnityEngine;
 
 namespace nyy.FG_Case.PlayerSc
 {
-    public class Sale : MonoBehaviour, IEventListener<Gem,Transform>
+    public class Sale : MonoBehaviour, IEventListener<Gem>
     {
         #region PROPERTIES
-        
+
         [TabGroup("Data")] 
-        public IntRef PlayerCoin;
+        public PlayerData playerData;
+        // public IntRef PlayerCoin;
         [TabGroup("Data")] 
         public IntRef CollectedAllGemAmount;
         
@@ -29,17 +30,27 @@ namespace nyy.FG_Case.PlayerSc
         
         [Title("Events")] 
         public ScriptableEvent<Gem,Transform> SaleAnimationEvent;
-        public ScriptableEvent<Gem,Transform> PriceEvent;
+        public ScriptableEvent<Gem> PriceEvent;
         public ScriptableEvent<Gem> OnCoinMove3Dto2D;
+        public ScriptableEvent OnPlayerCoinChanged;
         
         [Title("Save Events")] 
         public ScriptableEvent SavePlayerCoin;
         
+        // [Title("Save Events")] 
+        // public ScriptableEvent<string, IntRef> SavePlayerCoin;
+        // public ScriptableEvent<string, IntRef> CheckPlayerCoin;
+        //
         [TabGroup("C","DoTween Settings")]
         [SerializeField] private SaleDoTweenProperties saleDoTweenProperties;
         #endregion
 
         #region EVENT FUNCTIONS
+
+        private void Start()
+        {
+            // CheckPlayerCoin.Invoke("PlayerCoin", PlayerCoin);
+        }
 
         private void OnEnable()
         {
@@ -55,7 +66,12 @@ namespace nyy.FG_Case.PlayerSc
         #endregion
 
         #region IMPLEMENTED FUNCTIONS
-
+        
+        public void OnEventInvoked(Gem argument)
+        {
+            Price(argument);
+        }
+        
         #endregion
 
         #region PUBLIC FUNCTIONS
@@ -88,10 +104,12 @@ namespace nyy.FG_Case.PlayerSc
 
         #region PRIVATE FUNCTIONS
 
-        public void Price(Gem gem, Transform transform)
+        private void Price(Gem gem)
         {
-            PlayerCoin.Value += CalculatePrice(gem);
-            // SavePlayerCoin.Invoke();
+            playerData.PlayerCoin += CalculatePrice(gem);
+            OnPlayerCoinChanged.Invoke();
+            SavePlayerCoin.Invoke();
+            // SavePlayerCoin.Invoke("PlayerCoin", PlayerCoin);
         }
         
         private void DestroySoldGem(Gem gem)
@@ -118,11 +136,6 @@ namespace nyy.FG_Case.PlayerSc
         }
         
         #endregion
-
-        public void OnEventInvoked(Gem arg0, Transform arg1)
-        {
-            Price(arg0, arg1);
-        }
     }
     
     [Serializable]

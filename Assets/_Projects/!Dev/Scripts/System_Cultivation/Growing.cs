@@ -36,8 +36,6 @@ namespace nyy.FG_Case.System_Gem
         
         public void StopGrowing()
         {
-            print("Growing Stopped");
-
             var uid = Guid.NewGuid();
             
             _tween.id = uid;

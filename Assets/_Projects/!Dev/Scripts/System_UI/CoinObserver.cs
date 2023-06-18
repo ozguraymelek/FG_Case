@@ -28,12 +28,13 @@ namespace nyy.FG_Case.Observers
         public TMP_Text textPlayerCoin;
         
         [TabGroup("Data")] 
-        public IntRef playerCoin;
+        public PlayerData PlayerData;
+        // public IntRef playerCoin;
         
         [Title("Events")] 
         public ScriptableEvent OnPlayerCoinChanged;
         public ScriptableEvent<Gem> OnCoinMove3Dto2D;
-        public ScriptableEvent<Gem,Transform> PriceEvent;
+        public ScriptableEvent<Gem> PriceEvent;
         
         [Title("DoTween Settings")] 
         [SerializeField] private CoinMoveDoTweenSettings coinMoveDoTweenSettings;
@@ -44,7 +45,7 @@ namespace nyy.FG_Case.Observers
 
         private void Start()
         {
-            textPlayerCoin.text = playerCoin.Value.ToString();
+            textPlayerCoin.text = PlayerData.PlayerCoin.ToString();
         }
 
         private void OnEnable()
@@ -65,7 +66,7 @@ namespace nyy.FG_Case.Observers
         
         public void OnEventInvoked()
         {
-            textPlayerCoin.text = playerCoin.Value.ToString();
+            textPlayerCoin.text = PlayerData.PlayerCoin.ToString();
         }
 
         public void OnEventInvoked(Gem argument)
@@ -94,7 +95,7 @@ namespace nyy.FG_Case.Observers
             {
                 Destroy(icon.gameObject);
                 
-                PriceEvent.Invoke(gem, transform);
+                PriceEvent.Invoke(gem);
             });
         }
         

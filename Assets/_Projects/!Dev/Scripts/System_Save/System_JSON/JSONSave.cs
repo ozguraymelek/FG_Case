@@ -15,33 +15,27 @@ namespace nyy.FG_Case.System_Save
     {
         #region PROPERTIES
 
-        [Title("Objects to Save")] public IntRef PlayerCoin;
+        [Title("Objects to Save")] public PlayerData PlayerData;
 
         [Title("Events")] public ScriptableEvent SavePlayerCoin;
         
         #endregion
 
         #region EVENT FUNCTIONS
-        
-        
-        private void Awake()
+
+        private void Start()
         {
-            // DontDestroyOnLoad(this);
+            LoadData();
         }
 
         private void OnEnable()
         {
-            // SavePlayerCoin += this;
+            SavePlayerCoin += this;
         }
 
         private void OnDisable()
         {
-            // SavePlayerCoin -= this;
-        }
-
-        private void Start()
-        {
-            // LoadData();
+            SavePlayerCoin -= this;
         }
         
         private void Update()
@@ -79,7 +73,7 @@ namespace nyy.FG_Case.System_Save
             {
                 Directory.CreateDirectory(Application.persistentDataPath + "/game_save/game_data");
             }
-            var json = JsonUtility.ToJson(PlayerCoin);
+            var json = JsonUtility.ToJson(PlayerData);
             File.WriteAllText(Application.persistentDataPath + "/game_save/game_data/playercoin_save.txt", json);
         }
 
@@ -93,7 +87,7 @@ namespace nyy.FG_Case.System_Save
             if (File.Exists(Application.persistentDataPath + "/game_save/game_data/playercoin_save.txt"))
             {
                 var file = File.ReadAllText(Application.persistentDataPath + "/game_save/game_data/playercoin_save.txt");
-                JsonUtility.FromJsonOverwrite((string)file, PlayerCoin);
+                JsonUtility.FromJsonOverwrite((string)file, PlayerData);
             }
         }
 
@@ -104,7 +98,7 @@ namespace nyy.FG_Case.System_Save
 
         private void OnApplicationQuit()
         {
-            // SaveData();
+            SaveData();
         }
 
         #endregion

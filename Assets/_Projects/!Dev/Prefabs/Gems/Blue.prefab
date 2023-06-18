@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6206344567181784224}
+  m_Father: {fileID: 9147856722055887512}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3123099506876073560
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0dda0772a869bcb41a551f035e504abc, type: 2}
+  - {fileID: 2100000, guid: 188c551cf5969dc48800436af73fb221, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2723401473022268777
+--- !u!1 &8586170424860242682
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,24 +91,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6206344567181784224}
+  - component: {fileID: 9147856722055887512}
   - component: {fileID: 6165846538974757288}
   - component: {fileID: -290860433760391383}
   - component: {fileID: 4032367797213084052}
   m_Layer: 6
-  m_Name: Green
+  m_Name: Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6206344567181784224
+--- !u!4 &9147856722055887512
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2723401473022268777}
+  m_GameObject: {fileID: 8586170424860242682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.04, y: 2.06, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -124,7 +124,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2723401473022268777}
+  m_GameObject: {fileID: 8586170424860242682}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2723401473022268777}
+  m_GameObject: {fileID: 8586170424860242682}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab7b05f37da41594ea9106e54e0169f1, type: 3}
@@ -146,9 +146,9 @@ MonoBehaviour:
   GemData: {fileID: 11400000, guid: fdf424997d892ae4a831dcf537c97573, type: 2}
   Growing: {fileID: 4032367797213084052}
   GemProperties:
-    Name: Green
-    StartingSalePrice: 27
-    Icon: {fileID: 21300000, guid: 38503639e05cb71439fa787bfee60f92, type: 3}
+    Name: Blue
+    StartingSalePrice: 38
+    Icon: {fileID: 21300000, guid: cb834c0309fc54c7f88b7aa05f1f899e, type: 3}
     Prefab: {fileID: -290860433760391383}
   boxCollider: {fileID: 0}
   material: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2723401473022268777}
+  m_GameObject: {fileID: 8586170424860242682}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9eb50778aa12e1e4d826872395986b74, type: 3}

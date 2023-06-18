@@ -338,11 +338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4132932838443274988, guid: 1410d224d67a2e24ebdb1e2547fc1c46, type: 3}
       propertyPath: m_text
-      value: 'S. Price :'
+      value: 'Price :'
       objectReference: {fileID: 0}
     - target: {fileID: 4132932838443274988, guid: 1410d224d67a2e24ebdb1e2547fc1c46, type: 3}
       propertyPath: m_fontSize
-      value: 43.55
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4132932838443274989, guid: 1410d224d67a2e24ebdb1e2547fc1c46, type: 3}
       propertyPath: m_Pivot.x

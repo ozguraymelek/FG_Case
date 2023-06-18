@@ -46,11 +46,16 @@ MonoBehaviour:
     - _collection:
       - _typeNameAndAssembly: System.String, mscorlib
       - _typeNameAndAssembly: UniRx.IntReactiveProperty, UniRx
+    - _collection:
+      - _typeNameAndAssembly: System.String, mscorlib
+      - _typeNameAndAssembly: nyy.FG_Case.ReferenceValue.IntRef, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_06a0b45653ef2414f8b8ce6a9b51ec84,
         z_ScriptableEventEmitter_Gem_Transform
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_f447c8aeb3a0f5f4d91f85e15eba1e7f,
         z_ScriptableEventEmitter_String_IntReactiveProperty
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_2dff322bd8e818741b883a1fcc52e160,
+        z_ScriptableEventEmitter_String_IntRef
   - _keys: []
     _values: []
   - _keys:
@@ -76,11 +81,16 @@ MonoBehaviour:
     - _collection:
       - _typeNameAndAssembly: System.String, mscorlib
       - _typeNameAndAssembly: UniRx.IntReactiveProperty, UniRx
+    - _collection:
+      - _typeNameAndAssembly: System.String, mscorlib
+      - _typeNameAndAssembly: nyy.FG_Case.ReferenceValue.IntRef, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_7ce9a9da11839a748983057a3929f201,
         z_ScriptableEvent_Gem_Transform
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_b592e5e5e20d2044c8fe7805687356a6,
         z_ScriptableEvent_String_IntReactiveProperty
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_88010dc2d2d597342961d0c53a2e758a,
+        z_ScriptableEvent_String_IntRef
   - _keys: []
     _values: []
   - _keys: []

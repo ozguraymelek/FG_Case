@@ -23,6 +23,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: UniRx.IntReactiveProperty, UniRx
     _guid: 
+  - _typeNameAndAssembly: nyy.FG_Case.ReferenceValue.IntRef, Assembly-CSharp
+    _guid: b5506626fbf208b4cba893055107b8af
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -42,6 +44,12 @@ MonoBehaviour:
       - _typeNameAndAssembly: UniRx.IntReactiveProperty, UniRx
         _guid: 
       _assemblyGUID: f447c8aeb3a0f5f4d91f85e15eba1e7f
+    - _arguments:
+      - _typeNameAndAssembly: System.String, mscorlib
+        _guid: 
+      - _typeNameAndAssembly: nyy.FG_Case.ReferenceValue.IntRef, Assembly-CSharp
+        _guid: b5506626fbf208b4cba893055107b8af
+      _assemblyGUID: 2dff322bd8e818741b883a1fcc52e160
   - _array: []
   - _array:
     - _arguments:
@@ -70,6 +78,12 @@ MonoBehaviour:
       - _typeNameAndAssembly: UniRx.IntReactiveProperty, UniRx
         _guid: 
       _assemblyGUID: b592e5e5e20d2044c8fe7805687356a6
+    - _arguments:
+      - _typeNameAndAssembly: System.String, mscorlib
+        _guid: 
+      - _typeNameAndAssembly: nyy.FG_Case.ReferenceValue.IntRef, Assembly-CSharp
+        _guid: b5506626fbf208b4cba893055107b8af
+      _assemblyGUID: 88010dc2d2d597342961d0c53a2e758a
   - _array: []
   - _array: []
   - _array: []
@@ -116,6 +130,33 @@ MonoBehaviour:
       _argNames:
       - TUnityObject
   - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`2, GenericScriptableArchitecture
+      _guid: 6686166ec8d545cd81c7b3a35c553c8e
+      AssemblyGUID: 
+      _argNames:
+      - T1
+      - T2
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`2,
+        GenericScriptableArchitecture.Timeline
+      _guid: 59640b2462bc4023a0d64a9cfc5d2e62
+      AssemblyGUID: 
+      _argNames:
+      - T1
+      - T2
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`2, GenericScriptableArchitecture
+      _guid: 6686166ec8d545cd81c7b3a35c553c8e
+      AssemblyGUID: 
+      _argNames:
+      - T1
+      - T2
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`2,
+        GenericScriptableArchitecture.Timeline
+      _guid: 59640b2462bc4023a0d64a9cfc5d2e62
+      AssemblyGUID: 
+      _argNames:
+      - T1
+      - T2
     - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`2, GenericScriptableArchitecture
       _guid: 6686166ec8d545cd81c7b3a35c553c8e
       AssemblyGUID: 

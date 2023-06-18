@@ -72,10 +72,6 @@ namespace nyy.FG_Case.System_Gem
             SaveCollectedCount.Invoke("Collected " + Type, CollectedCount);
         }
 
-        public void DecreaseCount()
-        {
-            CollectedCount.Value--;
-        }
         #endregion  
                 
         #region PRIVATE FUNCTIONS

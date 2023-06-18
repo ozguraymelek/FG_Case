@@ -13,16 +13,12 @@ namespace nyy.FG_Case.System_Grid
     {
         #region PROPERTIES
         
-        [Title("Runtime Set")]
-        public RuntimeSet<Gem> SpawnedGemForPool;
-
         [Title("Data")]
         public GemObjectData GemData;
         
         [TabGroup("Settings")] 
         [SerializeField] private Gem currentPlantedGem;
         public bool planted;
-        public float plantDelay;
 
         public LayerMask mask;
         

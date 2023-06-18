@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1967046314659387152}
+  m_Father: {fileID: 1207828708215467562}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3123099506876073560
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4791726978706214869
+--- !u!1 &8292548128261291733
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1967046314659387152}
+  - component: {fileID: 1207828708215467562}
   - component: {fileID: 6165846538974757288}
   - component: {fileID: -290860433760391383}
   - component: {fileID: 4032367797213084052}
@@ -102,13 +102,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1967046314659387152
+--- !u!4 &1207828708215467562
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4791726978706214869}
+  m_GameObject: {fileID: 8292548128261291733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.04, y: 2.06, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -124,7 +124,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4791726978706214869}
+  m_GameObject: {fileID: 8292548128261291733}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4791726978706214869}
+  m_GameObject: {fileID: 8292548128261291733}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab7b05f37da41594ea9106e54e0169f1, type: 3}
@@ -147,11 +147,13 @@ MonoBehaviour:
   Growing: {fileID: 4032367797213084052}
   GemProperties:
     Name: Yellow
-    StartingSalePrice: 131
+    StartingSalePrice: 15
     Icon: {fileID: 21300000, guid: eaede8b24060eb3459cc4f6129993148, type: 3}
     Prefab: {fileID: -290860433760391383}
   boxCollider: {fileID: 0}
+  material: {fileID: 0}
   grewEffectPrefab: {fileID: 6804003120978211834, guid: 26320fe0c07616742b66077537c49843, type: 3}
+  grewEffect: {fileID: 0}
   CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
   isStacked: 0
   canGrow: 0
@@ -170,7 +172,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4791726978706214869}
+  m_GameObject: {fileID: 8292548128261291733}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9eb50778aa12e1e4d826872395986b74, type: 3}

@@ -1173,7 +1173,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 4103b7f9b935a844484148370fa01f59, type: 3}
   m_Controller: {fileID: 9100000, guid: 63e074532033e064cb0aed2dab5dd0bf, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd558bde27db48488ace03501b59627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCoin: {fileID: 11400000, guid: 3a76badce4255ec42ac62781ce0f37bc, type: 2}
+  playerData: {fileID: 11400000, guid: 43d5b0c69858b68448e1e8bc164c0a96, type: 2}
   CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
   CollectedGemSet: {fileID: 11400000, guid: c06c77e69ca2d954d8f99e4bc3f4f9d1, type: 2}
   SoldGemSet: {fileID: 11400000, guid: adc653e2bcddca640992e8bbccdcbf1c, type: 2}
@@ -1269,7 +1269,6 @@ MonoBehaviour:
   SaleAnimationEvent: {fileID: 11400000, guid: d08c3ec9a1c69d541b60c2ebe6745e76, type: 2}
   PriceEvent: {fileID: 11400000, guid: 9b09e51c929350349946d335da96dd5d, type: 2}
   OnCoinMove3Dto2D: {fileID: 11400000, guid: 7b58e65e9105bb34383c3adf8eb3b60c, type: 2}
-  SavePlayerCoin: {fileID: 11400000, guid: a764cb3216c490a418a965c1bf7d0387, type: 2}
   saleDoTweenProperties:
     DoJumpPower: 2
     DoJumpNums: 2
