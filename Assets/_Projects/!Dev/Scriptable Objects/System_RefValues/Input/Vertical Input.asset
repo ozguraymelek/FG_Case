@@ -21,4 +21,4 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  OnValueChanged: {fileID: 0}
+  OnValueChanged: {fileID: 11400000, guid: 28640bda980ee174b8c66be3f70c6cca, type: 2}

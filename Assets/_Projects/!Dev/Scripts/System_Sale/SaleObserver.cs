@@ -45,7 +45,7 @@ namespace nyy.FG_Case.System_Sale
         
         public void OnEventInvoked(Gem arg0, Transform arg1)
         {
-            Animation(arg0, arg1);
+            Observer(arg0, arg1);
         }
         
         #endregion
@@ -56,7 +56,7 @@ namespace nyy.FG_Case.System_Sale
 
         #region PRIVATE FUNCTIONS
         
-        private void Animation(Gem gem, Transform transform)
+        private void Observer(Gem gem, Transform transform)
         {
             var popUpText = Instantiate(textEarnedMoneyPopUp, transform);
             popUpText.text = $"+ {Sale.CalculatePrice(gem)}";
@@ -69,10 +69,10 @@ namespace nyy.FG_Case.System_Sale
             var tweenPopUpRotate =
                 popUpText.transform.DORotate(popUpDoTweenSettings.PopUpRotateTargetRotation, 
                     popUpDoTweenSettings.PopUpRotateDuration, RotateMode.FastBeyond360);
-            
+
             tweenPopUpRotate.OnComplete(() => Destroy(popUpText.gameObject));
         }
-
+        
         #endregion
     }
     

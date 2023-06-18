@@ -33,6 +33,7 @@ namespace nyy.FG_Case.Observers
         [Title("Events")] 
         public ScriptableEvent OnPlayerCoinChanged;
         public ScriptableEvent<Gem> OnCoinMove3Dto2D;
+        public ScriptableEvent<Gem,Transform> PriceEvent;
         
         [Title("DoTween Settings")] 
         [SerializeField] private CoinMoveDoTweenSettings coinMoveDoTweenSettings;
@@ -64,7 +65,6 @@ namespace nyy.FG_Case.Observers
         
         public void OnEventInvoked()
         {
-            print("sda");
             textPlayerCoin.text = playerCoin.Value.ToString();
         }
 
@@ -90,7 +90,12 @@ namespace nyy.FG_Case.Observers
                 Quaternion.identity, coinPanel.transform.parent);
 
             var tweenCoin = icon.transform.DOMove(coinPanel.transform.position, coinMoveDoTweenSettings.MoneyMoveDuration);
-            tweenCoin.OnComplete(() => Destroy(icon.gameObject));
+            tweenCoin.OnComplete(() =>
+            {
+                Destroy(icon.gameObject);
+                
+                PriceEvent.Invoke(gem, transform);
+            });
         }
         
         #endregion

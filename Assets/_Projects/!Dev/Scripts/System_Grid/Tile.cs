@@ -16,6 +16,7 @@ namespace nyy.FG_Case.System_Grid
         [Title("Runtime Set")]
         public RuntimeSet<Gem> SpawnedGemForPool;
 
+        [Title("Data")]
         public GemObjectData GemData;
         
         [TabGroup("Settings")] 
@@ -82,6 +83,7 @@ namespace nyy.FG_Case.System_Grid
             currentPlantedGem.gameObject.SetActive(true);
                     
             currentPlantedGem.canGrow = true;
+            currentPlantedGem.isGrew = false;
             
             planted = true;
         }

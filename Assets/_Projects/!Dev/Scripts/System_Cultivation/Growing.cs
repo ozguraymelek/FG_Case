@@ -50,7 +50,7 @@ namespace nyy.FG_Case.System_Gem
                 .Subscribe(unit =>
                 {
                     gem.canStackable = transform.localScale.x >= .25f;
-                    gem.isGrew = transform.localScale.x >= 1f;
+                    gem.isGrew = transform.localScale.x >= 1f && gem.isStacked == false;
                     gem.canGrow = transform.localScale.x < 1f && gem.isStacked == false;
                 });
         }

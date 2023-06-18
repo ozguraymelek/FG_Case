@@ -1226,7 +1226,7 @@ MonoBehaviour:
   initState: {fileID: 11400000, guid: a1a06714856861646b382fbe5062a589, type: 2}
   CurrentState: {fileID: 0}
   rb: {fileID: 5029447829516728270}
-  collider: {fileID: 5029447829516728257}
+  capsuleCollider: {fileID: 5029447829516728257}
   animator: {fileID: 1347786312287730859}
   virtualCamera: {fileID: 0}
   MovementVector: {fileID: 11400000, guid: a761fe8e30a598a498f0e8bd12373d0c, type: 2}
@@ -1261,19 +1261,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd558bde27db48488ace03501b59627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCoin: {fileID: 11400000, guid: 3167b29226184c144bd0b3571a46fba9, type: 2}
+  PlayerCoin: {fileID: 11400000, guid: 3a76badce4255ec42ac62781ce0f37bc, type: 2}
   CollectedAllGemAmount: {fileID: 11400000, guid: 98a4b4cdd621d5c409994d2f30cde758, type: 2}
   CollectedGemSet: {fileID: 11400000, guid: c06c77e69ca2d954d8f99e4bc3f4f9d1, type: 2}
   SoldGemSet: {fileID: 11400000, guid: adc653e2bcddca640992e8bbccdcbf1c, type: 2}
   GemListItemSetRuntime: {fileID: 11400000, guid: d530ffe19128d0c46ace3ccfb23b0599, type: 2}
   SaleAnimationEvent: {fileID: 11400000, guid: d08c3ec9a1c69d541b60c2ebe6745e76, type: 2}
+  PriceEvent: {fileID: 11400000, guid: 9b09e51c929350349946d335da96dd5d, type: 2}
   OnCoinMove3Dto2D: {fileID: 11400000, guid: 7b58e65e9105bb34383c3adf8eb3b60c, type: 2}
-  OnGemSold: {fileID: 11400000, guid: 98bb457d079117b459474c7fb97fcbd3, type: 2}
   SavePlayerCoin: {fileID: 11400000, guid: a764cb3216c490a418a965c1bf7d0387, type: 2}
   saleDoTweenProperties:
-    DoJumpPower: 1.5
+    DoJumpPower: 2
     DoJumpNums: 2
-    DoJumpDuration: 1
+    DoJumpDuration: 0.25
 --- !u!1 &5038583736202538139
 GameObject:
   m_ObjectHideFlags: 0

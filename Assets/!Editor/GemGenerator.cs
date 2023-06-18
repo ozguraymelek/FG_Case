@@ -99,8 +99,6 @@ namespace nyy.FG_Case
             AssetDatabase.SaveAssets();
             
             AssetDatabase.Refresh();
-            
-            // _createdGems.Add(newGameObject.GetComponent<Gem>());
         }
 
         [Button, GUIColor(.85f,.5f,.7f)]
@@ -122,7 +120,7 @@ namespace nyy.FG_Case
             }
             
             GemData.GemDataList.Clear();
-            // DeleteGemListItems();
+            DeleteGemListItems();
         }
         #endregion  
                 
@@ -157,23 +155,23 @@ namespace nyy.FG_Case
 
             listItem.SetData();
             
-            // SetGemListItems(listItem);
+            SetGemListItems(listItem);
         }
 
-        // private void SetGemListItems(GemListItem gemListItem)
-        // {
-        //     CreatedGemItemListEditor.Add(gemListItem);
-        // }
-        //
-        // private void DeleteGemListItems()
-        // {
-        //     foreach (var gemListItem in CreatedGemItemListEditor)
-        //     {
-        //         DestroyImmediate(gemListItem.gameObject);
-        //     }
-        //
-        //     CreatedGemItemListEditor.Clear();
-        // }
+        private void SetGemListItems(GemListItem gemListItem)
+        {
+            CreatedGemItemListEditor.Add(gemListItem);
+        }
+
+        private void DeleteGemListItems()
+        {
+            foreach (var gemListItem in CreatedGemItemListEditor)
+            {
+                DestroyImmediate(gemListItem.gameObject);
+            }
+
+            CreatedGemItemListEditor.Clear();
+        }
         
         #endregion
     }

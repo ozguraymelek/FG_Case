@@ -59,7 +59,7 @@ namespace nyy.FG_Case.PlayerSc
             if (gem.CanStackable() == false) return;
             
             gem.Stack(stackHolder);
-            // StartCoroutine(OscillateRoutine());
+            StartCoroutine(OscillateRoutine());
             FindCorrectGemItemList(gem);
             
             gem.SetGrowable(false);
@@ -93,7 +93,8 @@ namespace nyy.FG_Case.PlayerSc
         {
             for (int i = 0; i < CollectedGemSet.Count; i++)
             {
-                var tween = CollectedGemSet[i].transform.DOPunchScale(new Vector3(.75f, 0, .75f), .4f);
+                CollectedGemSet[i].transform.DORewind();
+                var tween = CollectedGemSet[i].transform.DOPunchScale(new Vector3(.2f, 0, .2f), .4f);
                 
                 yield return new WaitForSeconds(.05f);
             }

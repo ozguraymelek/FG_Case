@@ -5,6 +5,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using GenericScriptableArchitecture;
+using Lean.Pool;
 using nyy.FG_Case.Extensions;
 using nyy.FG_Case.PlayerSc;
 using nyy.FG_Case.ReferenceValue;
@@ -26,7 +27,12 @@ namespace nyy.FG_Case.System_Gem
 
         [TabGroup("A", "Components")] [SerializeField]
         public BoxCollider boxCollider;
+        public Material material;
 
+        [Title("Effect Components")] 
+        public GameObject grewEffectPrefab;
+        public GameObject grewEffect;
+        
         [Title("Properties")] [TabGroup("B", "Stack Settings")]
         public IntRef CollectedAllGemAmount;
 
@@ -97,21 +103,6 @@ namespace nyy.FG_Case.System_Gem
         #endregion
 
         #region PRIVATE FUNCTIONS
-        
-        // private List<UniTask> Move(Transform target, CancellationToken ct)
-        // {
-        //     var taskList = new List<UniTask>();
-        //
-        //     var seq = DOTween.Sequence();
-        //
-        //     seq.Append(transform.DOLocalMove(target.position + gemDoTweenProperties.DoMoveUpEndValue, gemDoTweenProperties.DoMoveUpDuration));
-        //
-        //     // SpawnedGemFromPool.Remove(this);
-        //         
-        //     taskList.Add(seq.ToUniTask(cancellationToken: ct));
-        //
-        //     return taskList;
-        // }
 
         public void Stack(Transform target)
         {
@@ -144,13 +135,33 @@ namespace nyy.FG_Case.System_Gem
             CollectedGemSet.Add(gem);
         }
 
-        public void GemSituationalActions()
+        private void GemSituationalActions()
         {
             this.ObserveEveryValueChanged(_ => isGrew).Where(_ => isGrew)
-                .Subscribe(unit => { Growing.StopGrowing(); });
+                .Subscribe(unit =>
+                {
+                    Growing.StopGrowing();
+                    
+                    grewEffect = LeanPool.Spawn(grewEffectPrefab, transform);
+                    
+                    var psMain = grewEffect.GetComponent<ParticleSystem>();
+                    
+                    var mainMainPsModule = psMain.main;
+                    
+                    material = GetComponentInChildren<Renderer>().material;
+                    
+                    mainMainPsModule.startColor = new ParticleSystem.MinMaxGradient(material.color);
+                });
 
             this.ObserveEveryValueChanged(_ => isStacked).Where(_ => isStacked)
-                .Subscribe(unit => { Growing.StopGrowing(); });
+                .Subscribe(unit =>
+                {
+                    isGrew = false;
+                    
+                    Growing.StopGrowing();
+                    
+                    LeanPool.Despawn(grewEffect);
+                });
         }
 
         #endregion
