@@ -22,3 +22,4 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   PlayerCoin: 0
+  soundEffects: 1

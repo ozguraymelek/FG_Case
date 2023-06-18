@@ -12804,7 +12804,7 @@ MonoBehaviour:
   soundButtonImage: {fileID: 735937353}
   soundOnSprite: {fileID: 21300000, guid: 901d64fc6ad9d44799c2ad0fd4f182d2, type: 3}
   soundOffSprite: {fileID: 21300000, guid: 78757b0623f3b4309b7cc69c4769ae37, type: 3}
-  SavePlayerData: {fileID: 0}
+  SavePlayerData: {fileID: 11400000, guid: a764cb3216c490a418a965c1bf7d0387, type: 2}
 --- !u!1001 &1921661300
 PrefabInstance:
   m_ObjectHideFlags: 0
