@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using GenericScriptableArchitecture;
+using Lean.Pool;
 using nyy.FG_Case.ReferenceValue;
 using nyy.FG_Case.System_Gem;
 using Sirenix.OdinInspector;
@@ -27,7 +28,6 @@ namespace nyy.FG_Case.PlayerSc
         [Title("Events")] 
         public ScriptableEvent<Gem,Transform> SaleAnimationEvent;
         public ScriptableEvent<Gem> OnCoinMove3Dto2D;
-        public ScriptableEvent<Gem> OnGemSold;
         
         [Title("Save Events")] public ScriptableEvent SavePlayerCoin;
         
@@ -59,7 +59,6 @@ namespace nyy.FG_Case.PlayerSc
                 , saleDoTweenProperties.DoJumpPower, saleDoTweenProperties.DoJumpNums,
                 saleDoTweenProperties.DoJumpDuration);
             
-            // FindCorrectGemItemList(currentGem);
             CollectedGemSet.Remove(currentGem);
             
             tween.OnComplete(() =>
@@ -84,22 +83,10 @@ namespace nyy.FG_Case.PlayerSc
             
             OnCoinMove3Dto2D.Invoke(gem);
         }
-
-        private void FindCorrectGemItemList(IStackable gem)
-        {
-            foreach (var gemListItem in GemListItemSetRuntime)
-            {
-                if (gemListItem.Type == gem.GetName())
-                {
-                    gem.SetGemListRef(gemListItem);
-                    gemListItem.DecreaseCount();
-                }
-            }
-        }
-
+        
         private void DestroySoldGem(Gem gem)
         {
-            OnGemSold.Invoke(gem);
+            LeanPool.Despawn(gem);
         }
         
         public static int CalculatePrice(Gem gem)

@@ -1,12 +1,11 @@
 using System.Collections;
 using GenericScriptableArchitecture;
+using Lean.Pool;
 using nyy.FG_Case.System_Data;
 using nyy.FG_Case.System_Gem;
-using nyy.FG_Case.System_Pool;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace nyy.FG_Case.System_Grid
 {
@@ -19,10 +18,6 @@ namespace nyy.FG_Case.System_Grid
 
         public GemObjectData GemData;
         
-        [BoxGroup("Pool")] 
-        public IObjectPool<Gem> GemObjectPool;
-        [SerializeField] private GemPool _gemPool;
-
         [TabGroup("Settings")] 
         [SerializeField] private Gem currentPlantedGem;
         public bool planted;
@@ -36,10 +31,6 @@ namespace nyy.FG_Case.System_Grid
 
         private void Start()
         {
-            if (_gemPool == null) _gemPool = FindObjectOfType<GemPool>();
-            
-            GemObjectPool = _gemPool.GemObjectPool;
-            
             planted = false;
             
             this.ObserveEveryValueChanged(_ => planted).Where(_ => planted == false)
@@ -78,12 +69,9 @@ namespace nyy.FG_Case.System_Grid
             
             currentPlantedGem = null;
             
-            GemObjectPool = _gemPool.GemObjectPool;
+            var rand = Random.Range(0, GemData.GemDataList.Count);
             
-            // var rand = Random.Range(0, GemData.GemDataList.Count);
-            // var gemClone = Instantiate(GemData.GemDataList[rand].Prefab,transform);
-            
-            var gemClone = GemObjectPool.Get();
+            var gemClone = LeanPool.Spawn(GemData.GemDataList[rand].Prefab, transform);
             
             currentPlantedGem = gemClone;
             
@@ -93,7 +81,6 @@ namespace nyy.FG_Case.System_Grid
             
             currentPlantedGem.gameObject.SetActive(true);
                     
-            SpawnedGemForPool.Remove(currentPlantedGem);
             currentPlantedGem.canGrow = true;
             
             planted = true;
