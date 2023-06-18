@@ -23,6 +23,7 @@ namespace nyy.FG_Case.PlayerSc
         
         [TabGroup("Stack Data")] 
         public RuntimeSet<Gem> CollectedGemSet;
+        [TabGroup("Stack Data")] 
         public RuntimeSet<Gem> SoldGemSet;
         
         [TabGroup("Stack Data")]
@@ -37,21 +38,12 @@ namespace nyy.FG_Case.PlayerSc
         [Title("Save Events")] 
         public ScriptableEvent SavePlayerCoin;
         
-        // [Title("Save Events")] 
-        // public ScriptableEvent<string, IntRef> SavePlayerCoin;
-        // public ScriptableEvent<string, IntRef> CheckPlayerCoin;
-        //
         [TabGroup("C","DoTween Settings")]
         [SerializeField] private SaleDoTweenProperties saleDoTweenProperties;
         #endregion
 
         #region EVENT FUNCTIONS
-
-        private void Start()
-        {
-            // CheckPlayerCoin.Invoke("PlayerCoin", PlayerCoin);
-        }
-
+        
         private void OnEnable()
         {
             PriceEvent += this;
@@ -86,12 +78,11 @@ namespace nyy.FG_Case.PlayerSc
                 saleDoTweenProperties.DoJumpDuration);
             
             CollectedGemSet.Remove(currentGem);
+            SoldGemSet.Add(currentGem);
             
             tween.OnComplete(() =>
             {
                 CollectedAllGemAmount.Value -= 1;
-                
-                SoldGemSet.Add(currentGem);
                 
                 SaleAnimationEvent.Invoke(currentGem, targetPos);
                 
@@ -109,7 +100,6 @@ namespace nyy.FG_Case.PlayerSc
             playerData.PlayerCoin += CalculatePrice(gem);
             OnPlayerCoinChanged.Invoke();
             SavePlayerCoin.Invoke();
-            // SavePlayerCoin.Invoke("PlayerCoin", PlayerCoin);
         }
         
         private void DestroySoldGem(Gem gem)

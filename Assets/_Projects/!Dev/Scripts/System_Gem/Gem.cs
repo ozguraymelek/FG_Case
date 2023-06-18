@@ -143,14 +143,8 @@ namespace nyy.FG_Case.System_Gem
                     Growing.StopGrowing();
                     
                     grewEffect = LeanPool.Spawn(grewEffectPrefab, transform);
-                    
-                    var psMain = grewEffect.GetComponent<ParticleSystem>();
-                    
-                    var mainMainPsModule = psMain.main;
-                    
-                    material = GetComponentInChildren<Renderer>().material;
-                    
-                    mainMainPsModule.startColor = new ParticleSystem.MinMaxGradient(material.color);
+
+                    SetParticleSystemColor();
                 });
 
             this.ObserveEveryValueChanged(_ => isStacked).Where(_ => isStacked)
@@ -159,11 +153,24 @@ namespace nyy.FG_Case.System_Gem
                     isGrew = false;
                     
                     Growing.StopGrowing();
+
+                    if (grewEffect == null) return;
                     
+                    grewEffect.transform.parent = null;
                     LeanPool.Despawn(grewEffect);
                 });
         }
 
+        private void SetParticleSystemColor()
+        {
+            var psMain = grewEffect.GetComponent<ParticleSystem>();
+                    
+            var mainMainPsModule = psMain.main;
+                    
+            material = GetComponentInChildren<Renderer>().material;
+                    
+            mainMainPsModule.startColor = new ParticleSystem.MinMaxGradient(material.color);
+        }
         #endregion
     }
 

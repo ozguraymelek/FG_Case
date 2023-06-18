@@ -34,6 +34,7 @@ namespace nyy.FG_Case.PlayerSc
 
         private void Start()
         {
+            DOTween.SetTweensCapacity(5000,5000);
             FindGemListItems();
         }
         

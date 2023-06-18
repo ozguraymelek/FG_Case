@@ -150,7 +150,7 @@ MonoBehaviour:
     StartingSalePrice: 38
     Icon: {fileID: 21300000, guid: cb834c0309fc54c7f88b7aa05f1f899e, type: 3}
     Prefab: {fileID: -290860433760391383}
-  boxCollider: {fileID: 0}
+  boxCollider: {fileID: 6165846538974757288, guid: ad8b4a69b11e1dc40b7885cdbfe4ebc0, type: 3}
   material: {fileID: 0}
   grewEffectPrefab: {fileID: 6804003120978211834, guid: 26320fe0c07616742b66077537c49843, type: 3}
   grewEffect: {fileID: 0}

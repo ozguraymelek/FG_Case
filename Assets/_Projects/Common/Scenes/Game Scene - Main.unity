@@ -11269,8 +11269,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1780799168}
   - component: {fileID: 1780799167}
-  - component: {fileID: 1780799165}
   - component: {fileID: 1780799166}
+  - component: {fileID: 1780799165}
   m_Layer: 0
   m_Name: Tile(Clone)
   m_TagString: Untagged

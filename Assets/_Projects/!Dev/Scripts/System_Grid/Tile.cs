@@ -48,6 +48,7 @@ namespace nyy.FG_Case.System_Grid
         private void FixedUpdate()
         {
             if (currentPlantedGem == null) return;
+            if (currentPlantedGem.isStacked == false) return;
             
             if (Physics.Raycast(transform.position, transform.up, Vector3.one.y,mask) == false)
             {
@@ -68,7 +69,8 @@ namespace nyy.FG_Case.System_Grid
             
             var rand = Random.Range(0, GemData.GemDataList.Count);
             
-            var gemClone = LeanPool.Spawn(GemData.GemDataList[rand].Prefab, transform);
+            // var gemClone = LeanPool.Spawn(GemData.GemDataList[rand].Prefab, transform);
+            var gemClone = Instantiate(GemData.GemDataList[rand].Prefab, transform);
             
             currentPlantedGem = gemClone;
             
