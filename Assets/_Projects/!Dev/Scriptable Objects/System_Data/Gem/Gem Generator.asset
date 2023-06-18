@@ -13,12 +13,7 @@ MonoBehaviour:
   m_Name: Gem Generator
   m_EditorClassIdentifier: 
   GemData: {fileID: 11400000, guid: fdf424997d892ae4a831dcf537c97573, type: 2}
-  CreatedGemItemListEditor:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  CreatedGemItemListEditor: []
   setReferencePrefab: 0
   ReferencePrefab: {fileID: 6165846538974757285, guid: b62e09ea291c4fa4eba2630d8f8796f7, type: 3}
   ReferenceListItemPrefab: {fileID: 7066523344965541426, guid: 8546c39a8f19e3e4eb276d73bad0239c, type: 3}
